@@ -12,28 +12,6 @@ body{
     margin: 15px 0;
 }
 
-header{
-    background-color: #2D4059;
-    display: flex;
-    justify-content: space-between;
-    padding: 15px;
-    margin-bottom: 15px;
-    gap: 10px;
-}
-header div{
-    min-height: 15px;
-    background-color: #EA5455;
-}
-header div:nth-of-type(1){
-    flex-grow: 1;
-}
-header div:nth-of-type(2){
-    flex-grow: 3;
-}
-header div:nth-of-type(3){
-    flex-grow: 1;
-}
-
 nav{
     background-color: #F07B3F;
     padding: 15px;
