@@ -1,3 +1,6 @@
+body{
+    margin: 15px;
+}
 #layout{
     width: 100%;
     max-width: 1200px;
@@ -46,6 +49,7 @@ nav div{
     gap: 15px;
 }
 
+
 section{
     flex-grow: 2;
     padding: 15px;
@@ -86,4 +90,31 @@ aside div:nth-of-type(1){
 footer{
     min-height: 15px;
     background-color: #E6AF2E;
+}
+
+/* RESPONSIVE TABLET */
+@media only screen and (max-width: 768px) {
+    .content{
+        background-color: #FEFF03;
+        display: block;
+    }
+    section{
+        margin-bottom: 15px;
+    }  
+}
+
+/*RESPONSIVE MOBILE*/
+@media only screen and (max-width: 414px) {
+    header{
+        display: block;
+    }
+    header div{
+        margin-bottom: 15px;    }
+    
+    header div:nth-of-type(3){
+        margin-bottom: 0;
+    }
+    .content_section {
+        display: block;
+    }
 }
