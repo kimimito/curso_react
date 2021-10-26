@@ -50,24 +50,24 @@ nav div{
 }
 
 
-section{
+article{
     flex-grow: 2;
     padding: 15px;
     background-color: #4E4E6A;
 }
 
-.content_section {
+section {
     display: flex;
     justify-content: space-between;
     gap: 15px;
 }
-.content_section div{
+section div{
     background-color: #1F6CB0;
     min-height: 15px;
     margin-bottom: 10px;
     width: 100%;
 }
-.content_section .last{
+section .last{
     margin: 0;
     background-color: #70A3C4;
 }
@@ -98,7 +98,7 @@ footer{
         background-color: #FEFF03;
         display: block;
     }
-    section{
+    article{
         margin-bottom: 15px;
     }  
 }
@@ -114,7 +114,7 @@ footer{
     header div:nth-of-type(3){
         margin-bottom: 0;
     }
-    .content_section {
+    section {
         display: block;
     }
 }
