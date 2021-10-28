@@ -1,0 +1,253 @@
+@import url('https://fonts.googleapis.com/css2?family=Sorts+Mill+Goudy&display=swap');
+
+body{
+    margin: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#layout{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+a{
+    color: #808080;
+}
+a:hover{
+    color: #EE7463;
+}
+i span{
+    margin-left: 5px;
+}
+
+header{
+    background-image: url("images/header.jpg");
+    background-position-x: 50%;
+    background-position-y: 53%;
+    margin-bottom: 10px;
+    height: 350px;
+}
+.header_content{
+    display: grid;
+    grid-template-columns: 12% 76% 12%;
+    grid-template-rows: auto;
+    align-items: center;
+    position: relative;
+    top: 30px;
+    margin: 0 30px;
+}
+header img{
+    width: 100%;
+    max-width: 80px;
+}
+nav{
+    width: 85%;
+    margin: 0 auto;
+}
+nav ul{
+    list-style: none;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: auto;
+    justify-items: center;
+    padding: 0;
+    margin: 0;
+}
+.social a{
+    margin-right: 10px;
+}
+h1{
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.1);
+    max-width: 90%;
+    margin: 0 auto;
+    position: relative;
+    height: 95px;
+    top: 140px;
+    padding-top: 35px;
+    font-family: 'Sorts Mill Goudy', serif;
+    color: rgba(238, 116, 99, 0.8);
+}
+
+.content{
+    display: grid;
+    grid-template-columns: 74% 1% 25%;
+    grid-template-rows: auto;
+    grid-template-areas: "article . aside";      
+}
+.content_text{
+    padding: 0;
+    display: grid;
+    grid-template-columns: 49% 2% 49%;
+    grid-template-rows: auto;
+    grid-template-areas: "content-text-item-left . content-text-item-right";
+    color: #808080;
+}
+.content-text-item-left{
+    grid-area: content-text-item-left;
+}
+.content-text-item-right{
+    grid-area: content-text-item-right;
+}
+
+article{
+    grid-area: article;
+    padding: 15px;
+    background-color: #D8D7D7;
+}
+
+section {
+    display: grid;
+    grid-template-columns: 49% 2% 49%;
+    grid-template-rows: auto;
+    grid-template-areas: "section-item-left . section-item-right"; 
+}
+.section-item-left{
+    grid-area: section-item-left;
+}
+.section-item-right{
+    grid-area: section-item-right;
+}
+section img{
+    width: 100%;
+}
+section h2{
+    background-color: #F08080;
+    color: #fff;
+    padding: 10px;
+    margin-top: -15px;
+    margin-bottom: 0px;
+    text-transform: uppercase;
+}
+section div{
+    background-color: #F5F1F1;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.date{
+    position: relative;
+    color: #f7e676;
+    left: 10px;
+    top: -25px;
+}
+.last{
+    margin: 0;
+    text-align: center;
+    background-color: #D8D7D7;
+    display: block;
+}
+
+aside{
+    background-color: #D8D7D7;
+    padding: 15px;
+    grid-area: aside;
+    text-align: center;
+}
+
+footer{
+    background-color: #D8D7D7;
+    margin-top: 10px;
+}
+footer p{
+    color: #808080;
+    text-align: center;
+    margin: 0 auto;
+    background-color: #F5F1F1;
+    max-width: 96%;
+    padding: 10px;
+}
+
+/* RESPONSIVE TABLET */
+@media only screen and (max-width: 768px) {
+    .content{
+        display: block;
+    }
+    article{
+        margin-bottom: 15px;
+    }  
+}
+
+/*RESPONSIVE MOBILE*/
+@media only screen and (max-width: 414px) {
+    header{
+        background-position-y: 50%;
+        height: 450px;
+    }
+    h1{
+        height: 137px;
+        top: 60px;
+    }
+    section {
+        display: block;
+    }
+    .header_content{
+        grid-template-columns: auto;
+        grid-template-rows: 40% 40% 20%;
+        align-items: center;
+        justify-items: center;
+        top: 0px;
+        margin: 0px 10px;
+    }
+    nav{
+        width: 100%;
+        margin: 30px auto;
+        padding-left: 15px;
+    }
+    nav ul{
+        grid-template-columns: 33% 33% 33%;
+        grid-template-rows: 50% 50%;
+        align-items: center;
+        justify-items: start;
+    }
+    nav li{
+        margin-bottom: 10px;
+    }
+}
+
+/* ANIMATIONS */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+h1 {
+    -webkit-animation: fadein 2s ease-in alternate;
+    -moz-animation: fadein 2s ease-in alternate;
+    animation: fadein 2s ease-in alternate;
+}
+
+.logo:hover {
+    -webkit-animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) infinite;
+    -moz-animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) infinite;
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) infinite;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  @keyframes shake {
+    10%, 90% {
+      transform: translate3d(-1px, 0, 0);
+    }
+    
+    20%, 80% {
+      transform: translate3d(2px, 0, 0);
+    }
+  
+    30%, 50%, 70% {
+      transform: translate3d(-4px, 0, 0);
+    }
+  
+    40%, 60% {
+      transform: translate3d(4px, 0, 0);
+    }
+  }
