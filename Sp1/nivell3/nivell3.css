@@ -27,8 +27,9 @@ header{
     height: 350px;
 }
 .header_content{
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 12% 76% 12%;
+    grid-template-rows: auto;
     align-items: center;
     position: relative;
     top: 30px;
@@ -39,14 +40,15 @@ header img{
     max-width: 80px;
 }
 nav{
-    width: 65%;
+    width: 85%;
     margin: 0 auto;
 }
 nav ul{
     list-style: none;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+    grid-template-rows: auto;
+    justify-items: center;
     padding: 0;
     margin: 0;
 }
@@ -60,39 +62,53 @@ h1{
     margin: 0 auto;
     position: relative;
     height: 95px;
-    top: 144px;
+    top: 140px;
     padding-top: 35px;
     font-family: 'Sorts Mill Goudy', serif;
     color: rgba(238, 116, 99, 0.8);
 }
 
 .content{
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
+    display: grid;
+    grid-template-columns: 74% 1% 25%;
+    grid-template-rows: auto;
+    grid-template-areas: "article . aside";      
 }
 .content_text{
     padding: 0;
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
+    display: grid;
+    grid-template-columns: 49% 2% 49%;
+    grid-template-rows: auto;
+    grid-template-areas: "content-text-item-left . content-text-item-right";
+    color: #808080;
+}
+.content-text-item-left{
+    grid-area: content-text-item-left;
+}
+.content-text-item-right{
+    grid-area: content-text-item-right;
 }
 
 article{
-    flex-grow: 2;
+    grid-area: article;
     padding: 15px;
     background-color: #D8D7D7;
 }
 
 section {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    flex-grow: 3;
+    display: grid;
+    grid-template-columns: 49% 2% 49%;
+    grid-template-rows: auto;
+    grid-template-areas: "section-item-left . section-item-right"; 
+}
+.section-item-left{
+    grid-area: section-item-left;
+}
+.section-item-right{
+    grid-area: section-item-right;
 }
 section img{
     width: 100%;
-    max-width: 405px;
 }
 section h2{
     background-color: #F08080;
@@ -113,16 +129,17 @@ section div{
     left: 10px;
     top: -25px;
 }
-section .last{
+.last{
     margin: 0;
     text-align: center;
     background-color: #D8D7D7;
+    display: block;
 }
 
 aside{
     background-color: #D8D7D7;
     padding: 15px;
-    flex-grow: 1;
+    grid-area: aside;
     text-align: center;
 }
 
@@ -157,23 +174,32 @@ footer p{
     }
     h1{
         height: 137px;
-        top: 68px;
+        top: 60px;
     }
     section {
         display: block;
     }
     .header_content{
-        flex-direction: column;
+        grid-template-columns: auto;
+        grid-template-rows: 40% 40% 20%;
+        align-items: center;
+        justify-items: center;
         top: 0px;
         margin: 0px 10px;
     }
     nav{
         width: 100%;
-        margin: 10px auto;
+        margin: 30px auto;
         padding-left: 15px;
     }
     nav ul{
-        flex-direction: column;
+        grid-template-columns: 33% 33% 33%;
+        grid-template-rows: 50% 50%;
+        align-items: center;
+        justify-items: start;
+    }
+    nav li{
+        margin-bottom: 10px;
     }
 }
 
