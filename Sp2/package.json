@@ -1,0 +1,15 @@
+{
+  "name": "sprin2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "purgecss": "purgecss --css sass/style.css --content dist/index.html -o dist/stylemin.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.1.3"
+  }
+}
