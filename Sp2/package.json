@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "purgecss": "purgecss --css sass/style.css --content dist/index.html -o dist/stylemin.css"
+    "purgecss": "purgecss --css sass/main.css --content dist/index.html -o dist/main-min.css"
   },
   "keywords": [],
   "author": "",
