@@ -4,28 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='shortcut icon' type='image/x-icon' href='img/favicon-32x32.png' />
     <title>Curso de React Sprint_2 nivell_1</title>
     <link rel="stylesheet" href="../sass/main.css">
 </head>
 <body>
-    <nav class="navbar fixed-top navbar-expand-md navbar-light">
+    <nav class="navbar sticky-top navbar-expand-md navbar-light">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <img src="img/logo-bookmark.svg" alt="logo">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button type="button" class="navbar-toggler" data-bs-toggle="modal" data-bs-target="#navMobile">
                 <img src="img/icon-hamburger.svg" alt="menu">
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
                 <span class="navbar-text">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
+                        <li class="nav-item me-5">
                             <a class="nav-link" href="#">FEATURE</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item me-5">
                             <a class="nav-link" href="#">PRICING</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item me-5">
                             <a class="nav-link" href="#">CONTACT</a>
                         </li>
                         <li class="nav-item">
@@ -35,8 +36,44 @@
                 </span>
             </div>
         </div>
-    </nav>
+    </nav>   
+    <!-- mobil nav -->
+    <div class="modal" id="navMobile">
+      <div class="modal-dialog modal-fullscreen-sm-down">
+        <div class="modal-content p-4">
+          <div class="modal-header">
+            <img src="img/logo-bookmark_mobile.svg" alt="logo">
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item py-2">
+                    <a class="nav-link" href="#">FEATURE</a>
+                </li>
+                <li class="nav-item py-2">
+                    <a class="nav-link" href="#">PRICING</a>
+                </li>
+                <li class="nav-item py-2">
+                    <a class="nav-link" href="#">CONTACT</a>
+                </li>
+                <li class="nav-item">
+                    <button type="button" class="btn border border-white border-2 mt-4 w-100">LOGIN</button>
+                </li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+                <div class="mx-auto">
+                    <img src="img/icon-facebook.svg" class="me-4" alt="facebook">
+                    <img src="img/icon-twitter.svg" alt="twitter">
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    
 </body>
 </html>

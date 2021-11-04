@@ -11207,8 +11207,44 @@ fieldset:disabled .btn {
   }
 }
 
+.navbar .btn-secondary {
+  color: #fff;
+}
+
 .navbar-light .navbar-toggler {
   color: white;
   border: none;
+}
+
+#navMobile .modal-header {
+  border-bottom: none;
+}
+
+#navMobile .modal-content {
+  background-color: rgba(36, 41, 70, 0.9);
+}
+
+#navMobile .modal-content .btn-close {
+  background: center/1em auto no-repeat url(../dist/img/icon-close.svg);
+  opacity: 1;
+}
+
+#navMobile .nav-item {
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+
+#navMobile .nav-item .nav-link {
+  color: #fff;
+}
+
+#navMobile .nav-item .btn {
+  color: #fff;
+}
+
+#navMobile .modal-footer {
+  border-top: none;
 }
 /*# sourceMappingURL=main.css.map */

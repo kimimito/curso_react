@@ -5,7 +5,38 @@ $theme-colors: (
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
+.navbar .btn-secondary{
+  color: $white;
+}
 .navbar-light .navbar-toggler {
     color: rgba(255, 255, 255, 1);
     border: none;
+}
+
+#navMobile{
+  .modal-header{
+    border-bottom: none;
+  }
+  .modal-content{
+    background-color: rgba(36, 41, 70, 0.9);
+    .btn-close{
+      background: center/1em auto no-repeat url(../dist/img/icon-close.svg);
+      opacity: 1;
+    }
+  }
+  .nav-item{
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    width: 100%;
+    text-align: center;
+    color: $white;
+    .nav-link{
+      color: $white;
+    }
+    .btn{
+      color: $white;
+    }
+  }
+  .modal-footer{
+    border-top: none;
+  }
 }
