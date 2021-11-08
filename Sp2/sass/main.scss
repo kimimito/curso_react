@@ -2,8 +2,11 @@ $theme-colors: (
   "primary":    #5265E1,
   "secondary":  #FA5959
 );
+$primary:       #5265E1;
+$secondary:     #FA5959;
 
 @import "../node_modules/bootstrap/scss/bootstrap";
+
 
 p{
   color: $gray-600;
@@ -50,36 +53,104 @@ p{
 }
 
 #hero{
+  margin: 80px 0;
+  position: relative;
+  .btn-primary{
+    margin: 0 20px 0 0;
+  }
   @media only screen and (max-width: 767px) {
     text-align: center;
+    margin: 40px 0 80px 0;
+  }
+  @media only screen and (max-width: 340px) {
+    .btn-primary{
+      margin: 0px 10px 20px 10px;
+    }
+  }
+}
+
+#features{
+  img{
+    max-height: 430px;
+    @media only screen and (max-width: 767px) {
+      max-height: 280px;
+    }  
+  }
+  @media only screen and (max-width: 767px) {
+    text-align: center;
+  }
+  .nav-tabs{
+    @media only screen and (max-width: 767px) {
+      border: none;
+    }
+  } 
+  .nav-tabs .nav-link{
+    color: $gray-600;
+    @media only screen and (max-width: 767px) {
+      border-color: $gray-200;
+      border-left: none;
+      border-right: none;
+      padding: 15px;
+    }
+  }
+  .nav-link.active{
+    border-color: $white $white $secondary;
+    border-width: 0 0 4px 0;
+    color: $black;
+    @media only screen and (max-width: 767px) {
+      border-color: $gray-200 $white $gray-200;
+      border-width: 1px 0 1px 0;
+    }
+    span{
+      @media only screen and (max-width: 767px) {
+        border-bottom: 4px solid $secondary;
+        padding-bottom: 15px;
+      }
+    }
   }
 }
 
 .bg-blue{
   background-color: $primary;
   position: absolute;
-  top: 30%;
   z-index: -9;
   border: 1px solid $primary;
   height: 70%;
   width: 20%;
+  top: 30%;
   &.right{
     right: 0px;
   }
+  &.left{
+    left: 0px;
+  }
   &.dot{
     border: 1px solid $primary;
-    border-radius: 180px 0 0 180px;
     &.right{
       right: 20%;
+      border-radius: 180px 0 0 180px;
+    }
+    &.left{
+      left: 20%;
+      border-radius: 0 180px 180px 0;
     }
   }
   @media only screen and (max-width: 767px) {
-    top: 20%;
     height: 35%;
     width: 35%;
+    &.right{
+      top: 20%;
+    }
+    &.left{
+      top: 22%;
+    }
     &.dot{
       &.right{
         right: 35%;
+      }
+      &.left{
+        left: 35%;
+        top: 22%;
       }
     }
   }
@@ -90,3 +161,4 @@ p{
     height: 25%;
   }
 }
+
