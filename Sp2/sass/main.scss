@@ -5,6 +5,14 @@ $theme-colors: (
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
+p{
+  color: $gray-600;
+}
+.btn-light{
+  background-color: $gray-200;
+  border-color: $gray-200;
+}
+
 .navbar .btn-secondary{
   color: $white;
 }
@@ -38,5 +46,47 @@ $theme-colors: (
   }
   .modal-footer{
     border-top: none;
+  }
+}
+
+#hero{
+  @media only screen and (max-width: 767px) {
+    text-align: center;
+  }
+}
+
+.bg-blue{
+  background-color: $primary;
+  position: absolute;
+  top: 30%;
+  z-index: -9;
+  border: 1px solid $primary;
+  height: 70%;
+  width: 20%;
+  &.right{
+    right: 0px;
+  }
+  &.dot{
+    border: 1px solid $primary;
+    border-radius: 180px 0 0 180px;
+    &.right{
+      right: 20%;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    top: 20%;
+    height: 35%;
+    width: 35%;
+    &.dot{
+      &.right{
+        right: 35%;
+      }
+    }
+  }
+  @media only screen and (max-width: 375px) {
+    top: 15%;
+  }
+  @media only screen and (max-width: 320px) {
+    height: 25%;
   }
 }

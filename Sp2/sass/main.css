@@ -11207,6 +11207,15 @@ fieldset:disabled .btn {
   }
 }
 
+p {
+  color: #6c757d;
+}
+
+.btn-light {
+  background-color: #e9ecef;
+  border-color: #e9ecef;
+}
+
 .navbar .btn-secondary {
   color: #fff;
 }
@@ -11246,5 +11255,57 @@ fieldset:disabled .btn {
 
 #navMobile .modal-footer {
   border-top: none;
+}
+
+@media only screen and (max-width: 767px) {
+  #hero {
+    text-align: center;
+  }
+}
+
+.bg-blue {
+  background-color: #0d6efd;
+  position: absolute;
+  top: 30%;
+  z-index: -9;
+  border: 1px solid #0d6efd;
+  height: 70%;
+  width: 20%;
+}
+
+.bg-blue.right {
+  right: 0px;
+}
+
+.bg-blue.dot {
+  border: 1px solid #0d6efd;
+  border-radius: 180px 0 0 180px;
+}
+
+.bg-blue.dot.right {
+  right: 20%;
+}
+
+@media only screen and (max-width: 767px) {
+  .bg-blue {
+    top: 20%;
+    height: 35%;
+    width: 35%;
+  }
+  .bg-blue.dot.right {
+    right: 35%;
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .bg-blue {
+    top: 15%;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .bg-blue {
+    height: 25%;
+  }
 }
 /*# sourceMappingURL=main.css.map */
