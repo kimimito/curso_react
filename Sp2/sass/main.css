@@ -11216,13 +11216,33 @@ p {
   border-color: #e9ecef;
 }
 
+.btn-light:hover {
+  color: #343a40;
+  background-color: #fff;
+  border-color: #343a40;
+}
+
+.btn-primary:hover {
+  color: #5265E1;
+  background-color: #fff;
+}
+
 .navbar .btn-secondary {
   color: #fff;
+}
+
+.navbar .btn-secondary:hover {
+  color: #FA5959;
+  background-color: #fff;
 }
 
 .navbar-light .navbar-toggler {
   color: white;
   border: none;
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+  color: #FA5959;
 }
 
 #navMobile .modal-header {
@@ -11279,8 +11299,14 @@ p {
   }
 }
 
+#hero img {
+  max-width: 500px;
+  width: 100%;
+}
+
 #features {
   margin: 80px 0;
+  position: relative;
 }
 
 @media only screen and (max-width: 767px) {
@@ -11290,13 +11316,8 @@ p {
 }
 
 #features img {
-  max-height: 430px;
-}
-
-@media only screen and (max-width: 767px) {
-  #features img {
-    max-height: 280px;
-  }
+  max-width: 450px;
+  width: 100%;
 }
 
 @media only screen and (max-width: 767px) {
@@ -11454,17 +11475,86 @@ p {
   position: absolute;
   z-index: -9;
   border: 1px solid #5265E1;
-  height: 70%;
   width: 20%;
-  top: 30%;
+  bottom: 0;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+@media only screen and (max-width: 767px) {
+  .bg-blue {
+    width: 35%;
+  }
 }
 
 .bg-blue.right {
   right: 0px;
+  height: 70%;
+}
+
+@media only screen and (max-width: 767px) {
+  .bg-blue.right {
+    top: 20%;
+    height: 42%;
+  }
+}
+
+@media only screen and (max-width: 476px) {
+  .bg-blue.right {
+    height: 35%;
+  }
+}
+
+@media only screen and (max-width: 398px) {
+  .bg-blue.right {
+    top: 15%;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .bg-blue.right {
+    top: 13%;
+    height: 25%;
+  }
 }
 
 .bg-blue.left {
   left: 0px;
+  height: 45%;
+}
+
+@media only screen and (max-width: 991px) {
+  .bg-blue.left {
+    bottom: 3%;
+    height: 35%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .bg-blue.left {
+    bottom: 22%;
+    height: 29%;
+  }
+}
+
+@media only screen and (max-width: 460px) {
+  .bg-blue.left {
+    height: 26%;
+  }
+}
+
+@media only screen and (max-width: 398px) {
+  .bg-blue.left {
+    bottom: 25%;
+    height: 22%;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .bg-blue.left {
+    bottom: 26%;
+    height: 20%;
+  }
 }
 
 .bg-blue.dot {
@@ -11476,40 +11566,20 @@ p {
   border-radius: 180px 0 0 180px;
 }
 
+@media only screen and (max-width: 767px) {
+  .bg-blue.dot.right {
+    right: 35%;
+  }
+}
+
 .bg-blue.dot.left {
   left: 20%;
   border-radius: 0 180px 180px 0;
 }
 
 @media only screen and (max-width: 767px) {
-  .bg-blue {
-    height: 35%;
-    width: 35%;
-  }
-  .bg-blue.right {
-    top: 20%;
-  }
-  .bg-blue.left {
-    top: 22%;
-  }
-  .bg-blue.dot.right {
-    right: 35%;
-  }
   .bg-blue.dot.left {
     left: 35%;
-    top: 22%;
-  }
-}
-
-@media only screen and (max-width: 375px) {
-  .bg-blue {
-    top: 15%;
-  }
-}
-
-@media only screen and (max-width: 320px) {
-  .bg-blue {
-    height: 25%;
   }
 }
 /*# sourceMappingURL=main.css.map */

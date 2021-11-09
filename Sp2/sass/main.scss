@@ -7,23 +7,45 @@ $secondary:     #FA5959;
 
 @import "../node_modules/bootstrap/scss/bootstrap";
 
-
 p{
   color: $gray-600;
 }
 .btn-light{
   background-color: $gray-200;
   border-color: $gray-200;
+  &:hover{
+    color: $gray-800;
+    background-color: $white;
+    border-color: $gray-800;
+  }
+}
+.btn-primary{
+  &:hover{
+    color: $primary;
+    background-color: $white;
+  }
 }
 
 .navbar .btn-secondary{
   color: $white;
+  &:hover{
+    color: $secondary;
+    background-color: $white;
+  }
 }
 .navbar-light .navbar-toggler {
     color: rgba(255, 255, 255, 1);
     border: none;
 }
-
+.navbar-light{
+  .navbar-nav{
+    .nav-link{
+      &:hover{
+        color: $secondary;
+      }
+    }
+  }
+} 
 #navMobile{
   .modal-header{
     border-bottom: none;
@@ -67,18 +89,21 @@ p{
       margin: 0px 10px 20px 10px;
     }
   }
+  img{
+    max-width: 500px;
+    width: 100%;
+  }
 }
 
 #features{
   margin: 80px 0;
+  position: relative;
   @media only screen and (max-width: 767px) {
     margin: 40px 0 80px 0;
   }
   img{
-    max-height: 430px;
-    @media only screen and (max-width: 767px) {
-      max-height: 280px;
-    }  
+    max-width: 450px;
+    width: 100%;
   }
   @media only screen and (max-width: 767px) {
     text-align: center;
@@ -201,55 +226,75 @@ p{
   }
 }
 
+
 .bg-blue{
   background-color: $primary;
   position: absolute;
   z-index: -9;
   border: 1px solid $primary;
-  height: 70%;
   width: 20%;
-  top: 30%;
+  bottom: 0;
+  box-sizing: content-box;
+  @media only screen and (max-width: 767px) {
+    width: 35%;
+  }
   &.right{
     right: 0px;
+    height: 70%;
+    @media only screen and (max-width: 767px) {
+      top: 20%;
+      height: 42%;
+    }
+    @media only screen and (max-width: 476px) {
+      height: 35%;
+    }
+    @media only screen and (max-width: 398px) {
+      top: 15%;
+    }
+    @media only screen and (max-width: 340px) {
+      top: 13%;
+      height: 25%;
+    }
   }
   &.left{
     left: 0px;
+    height: 45%;
+    @media only screen and (max-width: 991px) {
+      bottom: 3%;
+      height: 35%;
+    }
+    @media only screen and (max-width: 767px) {
+      bottom: 22%;
+      height: 29%;
+    }
+    @media only screen and (max-width: 460px) {
+      height: 26%;
+    }
+    @media only screen and (max-width: 398px) {
+      bottom: 25%;
+      height: 22%;
+    }
+    @media only screen and (max-width: 340px) {
+      bottom: 26%;
+      height: 20%;
+    }
   }
   &.dot{
     border: 1px solid $primary;
     &.right{
       right: 20%;
       border-radius: 180px 0 0 180px;
+      @media only screen and (max-width: 767px) {
+        right: 35%;
+      }
     }
     &.left{
       left: 20%;
       border-radius: 0 180px 180px 0;
-    }
-  }
-  @media only screen and (max-width: 767px) {
-    height: 35%;
-    width: 35%;
-    &.right{
-      top: 20%;
-    }
-    &.left{
-      top: 22%;
-    }
-    &.dot{
-      &.right{
-        right: 35%;
-      }
-      &.left{
+      @media only screen and (max-width: 767px) {
         left: 35%;
-        top: 22%;
       }
     }
-  }
-  @media only screen and (max-width: 375px) {
-    top: 15%;
-  }
-  @media only screen and (max-width: 320px) {
-    height: 25%;
   }
 }
 
