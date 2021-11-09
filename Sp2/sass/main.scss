@@ -142,7 +142,6 @@ p{
         }
       }
     }
-    
     .card{
       min-height: 350px;
       max-width: 300px;
@@ -165,6 +164,41 @@ p{
       }  
     }
   } 
+}
+
+#faqs{
+  .accordion-flush{
+    .accordion-item{
+      &:first-child{
+        border-top: 1px solid rgba(0, 0, 0, 0.125);
+      }
+      &:last-child{
+        border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+      }
+    }
+  } 
+  .accordion-button{
+    &:after{
+      background-image: url(../dist/img/icon-arrow.svg);
+      width: 15px;
+      height: 10px;
+      background-size: 15px;
+    }
+    &:not(.collapsed){
+      background-color: $white;
+      color: $black;
+      &:after{
+        background-image: url(../dist/img/icon-arrow-expan.svg);
+      }
+    }
+    &:focus{
+      border-color: transparent;
+      box-shadow: none;
+    }
+    &:hover{
+      color: $secondary;
+    }
+  }
 }
 
 .bg-blue{

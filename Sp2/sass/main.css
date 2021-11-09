@@ -11415,6 +11415,40 @@ p {
   margin-bottom: 15px;
 }
 
+#faqs .accordion-flush .accordion-item:first-child {
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+#faqs .accordion-flush .accordion-item:last-child {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+#faqs .accordion-button:after {
+  background-image: url(../dist/img/icon-arrow.svg);
+  width: 15px;
+  height: 10px;
+  background-size: 15px;
+}
+
+#faqs .accordion-button:not(.collapsed) {
+  background-color: #fff;
+  color: #000;
+}
+
+#faqs .accordion-button:not(.collapsed):after {
+  background-image: url(../dist/img/icon-arrow-expan.svg);
+}
+
+#faqs .accordion-button:focus {
+  border-color: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+#faqs .accordion-button:hover {
+  color: #FA5959;
+}
+
 .bg-blue {
   background-color: #5265E1;
   position: absolute;
