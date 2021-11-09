@@ -70,6 +70,10 @@ p{
 }
 
 #features{
+  margin: 80px 0;
+  @media only screen and (max-width: 767px) {
+    margin: 40px 0 80px 0;
+  }
   img{
     max-height: 430px;
     @media only screen and (max-width: 767px) {
@@ -92,6 +96,13 @@ p{
       border-right: none;
       padding: 15px;
     }
+    &:hover{
+      border-color: $white $white $gray-200 $white;
+      color: $secondary;
+      @media only screen and (max-width: 767px) {
+        border-color: $gray-200 $white $gray-200 $white;
+      }
+    }
   }
   .nav-link.active{
     border-color: $white $white $secondary;
@@ -108,6 +119,52 @@ p{
       }
     }
   }
+}
+
+#downloads{
+  margin: 80px 0;
+  @media only screen and (max-width: 767px) {
+    margin: 40px 0 80px 0;
+  }
+  .card-container{
+    max-width: 800px;
+    .card-content{
+      &:nth-child(2){
+        margin-top: 40px;
+        @media only screen and (max-width: 767px) {
+          margin-top: 0px;
+        }
+      }
+      &:nth-child(3){
+        margin-top: 80px;
+        @media only screen and (max-width: 767px) {
+          margin-top: 0px;
+        }
+      }
+    }
+    
+    .card{
+      min-height: 350px;
+      max-width: 300px;
+      margin: 0px auto 50px;
+      .card-img-top{
+        max-width: 100px;
+        margin: 40px auto 20px;
+      }
+      .card-footer{
+        border-top: none;
+        background-color: $white;
+        padding: 0;
+        .card-img-dots{
+          width: 100%;
+          margin-bottom: 15px;
+        }
+        a{
+          margin-bottom: 15px;
+        }
+      }  
+    }
+  } 
 }
 
 .bg-blue{
