@@ -5,6 +5,8 @@ $theme-colors: (
 $primary:       #5265E1;
 $secondary:     #FA5959;
 
+$form-feedback-icon-invalid: url(../dist/img/icon-error.svg);
+
 @import "../node_modules/bootstrap/scss/bootstrap";
 
 p{
@@ -26,7 +28,7 @@ p{
   }
 }
 
-.navbar .btn-secondary{
+.btn-secondary{
   color: $white;
   &:hover{
     color: $secondary;
@@ -234,12 +236,26 @@ p{
   background-color: $primary;
   margin: 80px 0 0 0;
   color: $white;
-  padding: 40px 0;
+  padding: 80px 0;
   @media only screen and (max-width: 767px) {
     margin: 40px 0 0 0;
   }
   p{
     color: $white;
+  }
+  .invalid-feedback{
+    color: white;
+    background-color: $secondary;
+    margin-top: -2px;
+    border-radius: 0px 0px 5px 5px;
+    padding-left: 5px;
+  }
+  .submit{
+    width: 100%;
+    max-width: 125px;
+    @media only screen and (max-width: 767px) {
+      max-width: 100%;
+    }
   }
 }
 
