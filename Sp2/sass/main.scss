@@ -53,7 +53,7 @@ p{
     border-bottom: none;
   }
   .modal-content{
-    background-color: rgba(36, 41, 70, 0.9);
+    background-color: rgba(36, 41, 70, 0.95);
     .btn-close{
       background: center/1em auto no-repeat url(../dist/img/icon-close.svg);
       opacity: 1;
@@ -249,13 +249,6 @@ p{
     margin-top: -2px;
     border-radius: 0px 0px 5px 5px;
     padding-left: 5px;
-  }
-  .submit{
-    width: 100%;
-    max-width: 125px;
-    @media only screen and (max-width: 767px) {
-      max-width: 100%;
-    }
   }
 }
 
