@@ -11250,7 +11250,7 @@ p {
 }
 
 #navMobile .modal-content {
-  background-color: rgba(36, 41, 70, 0.9);
+  background-color: rgba(36, 41, 70, 0.95);
 }
 
 #navMobile .modal-content .btn-close {
@@ -11503,17 +11503,6 @@ p {
   margin-top: -2px;
   border-radius: 0px 0px 5px 5px;
   padding-left: 5px;
-}
-
-#form .submit {
-  width: 100%;
-  max-width: 125px;
-}
-
-@media only screen and (max-width: 767px) {
-  #form .submit {
-    max-width: 100%;
-  }
 }
 
 #footer {
