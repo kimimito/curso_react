@@ -11505,24 +11505,24 @@ p {
   padding-left: 5px;
 }
 
-#footer {
+footer {
   background-color: #242946;
   padding: 10px 0;
 }
 
 @media only screen and (max-width: 767px) {
-  #footer {
+  footer {
     padding: 40px 0;
   }
 }
 
 @media only screen and (max-width: 767px) {
-  #footer .navbar-brand {
+  footer .navbar-brand {
     margin: 0 auto;
   }
 }
 
-#footer .navbar-nav {
+footer .navbar-nav {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -11530,7 +11530,7 @@ p {
 }
 
 @media only screen and (max-width: 767px) {
-  #footer .navbar-nav {
+  footer .navbar-nav {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -11540,29 +11540,29 @@ p {
   }
 }
 
-#footer .navbar-nav .nav-item {
+footer .navbar-nav .nav-item {
   margin-right: 20px;
 }
 
 @media only screen and (max-width: 767px) {
-  #footer .navbar-nav .nav-item {
+  footer .navbar-nav .nav-item {
     margin: 0 auto;
   }
 }
 
-#footer .navbar-nav .nav-link {
+footer .navbar-nav .nav-link {
   color: #fff;
 }
 
-#footer .navbar-nav .nav-link:hover {
+footer .navbar-nav .nav-link:hover {
   color: #FA5959;
 }
 
-#footer svg {
+footer svg {
   fill: #fff;
 }
 
-#footer svg:hover {
+footer svg:hover {
   fill: #FA5959;
 }
 
