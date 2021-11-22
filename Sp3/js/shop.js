@@ -81,22 +81,60 @@ var total = 0;
 function buy(id) {
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cartList array
+
+    products.forEach((product) => {
+        if(product.id === id){
+            cartList.push(product); 
+        }
+    })
+
+    console.log(cartList);
 }
 
 // Exercise 2
-function cleanCart() {
 
+function cleanCart() {
+    cartList = [];
 }
 
 // Exercise 3
 function calculateSubtotals() {
     // 1. Create a for loop on the "cartList" array 
     // 2. Implement inside the loop an if...else or switch...case to add the quantities of each type of product, obtaining the subtotals: subtotalGrocery, subtotalBeauty and subtotalClothes
+    
+    var grocerySub = 0;
+    var beautySub = 0;
+    var clothesSub = 0;
+
+    cartList.forEach((product) => {
+        if(product.type === 'grocery'){
+            grocerySub += Math.round(product.price * 100) / 100;
+        } else if (product.type === 'beauty') {
+            beautySub += Math.round(product.price * 100) / 100;
+        } else {
+            clothesSub += Math.round(product.price * 100) / 100;
+        } 
+    })  
+    subtotal.grocery.value = grocerySub;
+    subtotal.beauty.value = beautySub;
+    subtotal.clothes.value = clothesSub;
+
+    console.log(subtotal);
 }
+
 
 // Exercise 4
 function calculateTotal() {
     // Calculate total price of the cart either using the "cartList" array
+
+    calculateSubtotals();
+    var totalPrice = 0;
+
+    cartList.forEach((product) => {
+        totalPrice += product.price;
+    })
+    
+    console.log('TOTAL: '+ totalPrice);
 }
 
 // Exercise 5
