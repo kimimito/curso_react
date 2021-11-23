@@ -86,13 +86,12 @@ function buy(id) {
         if(product.id === id){
             cartList.push(product); 
         }
-    })
+    });
 
     console.log(cartList);
 }
 
 // Exercise 2
-
 function cleanCart() {
     cartList = [];
 }
@@ -114,7 +113,7 @@ function calculateSubtotals() {
         } else {
             clothesSub += Math.round(product.price * 100) / 100;
         } 
-    })  
+    });  
     subtotal.grocery.value = grocerySub;
     subtotal.beauty.value = beautySub;
     subtotal.clothes.value = clothesSub;
@@ -128,11 +127,12 @@ function calculateTotal() {
     // Calculate total price of the cart either using the "cartList" array
 
     calculateSubtotals();
+
     var totalPrice = 0;
 
     cartList.forEach((product) => {
         totalPrice += product.price;
-    })
+    });
     
     console.log('TOTAL: '+ totalPrice);
 }
@@ -141,6 +141,19 @@ function calculateTotal() {
 function generateCart() {
     // Using the "cartlist" array that contains all the items in the shopping cart, 
     // generate the "cart" array that does not contain repeated items, instead each item of this array "cart" shows the quantity of product.
+    
+    cart = [];
+    
+    cartList.forEach((product) => {
+        if (!cart.includes(product)) {
+            product.quantity = 1;
+            cart.push(product);
+          } else {
+            product.quantity = product.quantity + 1;    
+          }
+    });
+    
+    console.log(cart);
 }
 
 // Exercise 6
