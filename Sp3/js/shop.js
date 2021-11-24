@@ -130,9 +130,9 @@ function calculateTotal() {
     total = 0;
     totalWithDiscount = 0;
 
-    for (key in subtotal) {
-        total += subtotal[key].value;
-    }
+    // for (key in subtotal) {
+    //     total += subtotal[key].value;
+    // }
 
     cart.forEach((product) => {
         if(product.subtotalWithDiscount > 0){
@@ -140,6 +140,7 @@ function calculateTotal() {
         } else {
             totalWithDiscount += product.subtotal;
         }
+        total += product.subtotal;
     }); 
 
     console.log('TOTAL: '+ total);
