@@ -88,7 +88,7 @@ function buy(id) {
         }
     });
 
-    console.log(cartList);
+    console.log('CartList',cartList);
 }
 
 // Exercise 2
@@ -100,7 +100,7 @@ function cleanCart() {
 function calculateSubtotals() {
     // 1. Create a for loop on the "cartList" array 
     // 2. Implement inside the loop an if...else or switch...case to add the quantities of each type of product, obtaining the subtotals: subtotalGrocery, subtotalBeauty and subtotalClothes
-    
+
     var grocerySub = 0;
     var beautySub = 0;
     var clothesSub = 0;
@@ -118,23 +118,33 @@ function calculateSubtotals() {
     subtotal.beauty.value = beautySub;
     subtotal.clothes.value = clothesSub;
 
-    console.log(subtotal);
-}
+    console.log('SubTotal',subtotal);
 
+    calculateTotal();
+}
 
 // Exercise 4
 function calculateTotal() {
     // Calculate total price of the cart either using the "cartList" array
 
-    calculateSubtotals();
+    total = 0;
+    totalWithDiscount = 0;
 
-    var totalPrice = 0;
+    for (key in subtotal) {
+        total += subtotal[key].value;
+    }
 
-    cartList.forEach((product) => {
-        totalPrice += product.price;
-    });
+    cart.forEach((product) => {
+        if(product.subtotalWithDiscount > 0){
+            totalWithDiscount += Math.round(product.subtotalWithDiscount * 100) / 100;
+        } else {
+            totalWithDiscount += product.subtotal;
+        }
+    }); 
+
+    console.log('TOTAL: '+ total);
+    console.log('TOTALWITHDISCOUNT: '+ totalWithDiscount);
     
-    console.log('TOTAL: '+ totalPrice);
 }
 
 // Exercise 5
@@ -147,18 +157,38 @@ function generateCart() {
     cartList.forEach((product) => {
         if (!cart.includes(product)) {
             product.quantity = 1;
+            product.subtotal = product.quantity * product.price;
             cart.push(product);
-          } else {
-            product.quantity = product.quantity + 1;    
-          }
+        } else {
+            product.quantity = product.quantity + 1;
+            product.subtotal = product.quantity * product.price;    
+        }
     });
     
-    console.log(cart);
+    console.log('Cart', cart);
+
+    applyPromotionsCart();
+
 }
 
 // Exercise 6
 function applyPromotionsCart() {
     // Apply promotions to each item in the array "cart"
+
+    subtotal.grocery.discount = 0;
+
+    cart.forEach((product) =>{
+        if(product.id === 1 && product.quantity >= 3){
+            product.subtotalWithDiscount = product.quantity * 10;
+            subtotal.grocery.discount += product.subtotalWithDiscount;
+         } else if (product.id === 3 && product.quantity >= 10){
+            product.subtotalWithDiscount = product.quantity * (product.price / 3) * 2;
+            subtotal.grocery.discount += Math.round(product.subtotalWithDiscount * 100) / 100;  
+        }
+    });
+
+    calculateSubtotals();
+
 }
 
 // Exercise 7
