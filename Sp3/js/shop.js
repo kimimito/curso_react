@@ -88,7 +88,6 @@ function buy(id) {
         }
     });
 
-    console.log('CartList',cartList);
 }
 
 // Exercise 2
@@ -120,7 +119,6 @@ function calculateSubtotals() {
 
     console.log('SubTotal',subtotal);
 
-    calculateTotal();
 }
 
 // Exercise 4
@@ -128,23 +126,12 @@ function calculateTotal() {
     // Calculate total price of the cart either using the "cartList" array
 
     total = 0;
-    totalWithDiscount = 0;
 
-    // for (key in subtotal) {
-    //     total += subtotal[key].value;
-    // }
-
-    cart.forEach((product) => {
-        if(product.subtotalWithDiscount > 0){
-            totalWithDiscount += Math.round(product.subtotalWithDiscount * 100) / 100;
-        } else {
-            totalWithDiscount += product.subtotal;
-        }
-        total += product.subtotal;
-    }); 
+    for (key in subtotal) {
+        total += subtotal[key].value;
+    }
 
     console.log('TOTAL: '+ total);
-    console.log('TOTALWITHDISCOUNT: '+ totalWithDiscount);
     
 }
 
@@ -165,10 +152,6 @@ function generateCart() {
             product.subtotal = product.quantity * product.price;    
         }
     });
-    
-    console.log('Cart', cart);
-
-    applyPromotionsCart();
 
 }
 
@@ -177,6 +160,7 @@ function applyPromotionsCart() {
     // Apply promotions to each item in the array "cart"
 
     subtotal.grocery.discount = 0;
+    totalWithDiscount = 0;
 
     cart.forEach((product) =>{
         if(product.id === 1 && product.quantity >= 3){
@@ -186,9 +170,15 @@ function applyPromotionsCart() {
             product.subtotalWithDiscount = product.quantity * (product.price / 3) * 2;
             subtotal.grocery.discount += Math.round(product.subtotalWithDiscount * 100) / 100;  
         }
+        // comprobamos si hay descuento y lo aplicamos a totalWithDiscount
+        if(product.subtotalWithDiscount > 0){
+            totalWithDiscount += Math.round(product.subtotalWithDiscount * 100) / 100;
+        } else {
+            totalWithDiscount += product.subtotal;
+        }
     });
 
-    calculateSubtotals();
+    console.log('TOTALWITHDISCOUNT: '+ totalWithDiscount);
 
 }
 
@@ -197,6 +187,33 @@ function addToCart(id) {
     // Refactor previous code in order to simplify it 
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cart array or update its quantity in case it has been added previously.
+
+    products.forEach((product) => {
+        if(product.id === id){
+            cartList.push(product); 
+        }
+    });
+
+    cart = [];
+    
+    cartList.forEach((product) => {
+        if (!cart.includes(product)) {
+            product.quantity = 1;
+            product.subtotal = product.quantity * product.price;
+            cart.push(product);
+        } else {
+            product.quantity = product.quantity + 1;
+            product.subtotal = product.quantity * product.price;    
+        }
+    });
+
+    console.log('CartList',cartList);
+    console.log('Cart', cart);  
+    
+    calculateSubtotals();
+    calculateTotal();
+    applyPromotionsCart();
+
 }
 
 // Exercise 9
