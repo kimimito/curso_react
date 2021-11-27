@@ -3,6 +3,10 @@
 body {
     font-family: Poppins;
 }
-#errorPassword, #errorName, #errorPhone {
+#errorPassword, #errorName, #errorPhone, #errorRequired, #errorMail {
     display: none;
+    color: red;
+}
+input.error{
+    border-color: red;
 }

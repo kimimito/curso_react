@@ -195,8 +195,13 @@ function addToCart(id) {
     });
 
     cart = [];
+    var cartListCopy = [];
+
+    cartList.forEach((c) => { // hacemos una copia de cartList para no modificar ni cartList ni products
+        cartListCopy.push(JSON.parse(JSON.stringify(c)))
+    });
     
-    cartList.forEach((product) => {
+    cartListCopy.forEach((product) => {
         if (!cart.includes(product)) {
             product.quantity = 1;
             product.subtotal = product.quantity * product.price;
@@ -209,6 +214,7 @@ function addToCart(id) {
 
     console.log('CartList',cartList);
     console.log('Cart', cart);  
+    console.log('productos', products)
     
     calculateSubtotals();
     calculateTotal();
