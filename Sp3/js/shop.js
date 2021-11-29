@@ -93,6 +93,8 @@ function buy(id) {
 // Exercise 2
 function cleanCart() {
     cartList = [];
+    cart = [];
+    printCart();
 }
 
 // Exercise 3
@@ -167,7 +169,8 @@ function applyPromotionsCart() {
             product.subtotalWithDiscount = product.quantity * 10;
             subtotal.grocery.discount += product.subtotalWithDiscount;
          } else if (product.id === 3 && product.quantity >= 10){
-            product.subtotalWithDiscount = product.quantity * (product.price / 3) * 2;
+            let discount = product.quantity * (product.price / 3) * 2;
+            product.subtotalWithDiscount = Math.round(discount * 100) / 100;
             subtotal.grocery.discount += Math.round(product.subtotalWithDiscount * 100) / 100;  
         }
         // comprobamos si hay descuento y lo aplicamos a totalWithDiscount
@@ -195,13 +198,14 @@ function addToCart(id) {
     });
 
     cart = [];
-    var cartListCopy = [];
 
-    cartList.forEach((c) => { // hacemos una copia de cartList para no modificar ni cartList ni products
-        cartListCopy.push(JSON.parse(JSON.stringify(c)))
-    });
+    // var cartListCopy = [];
+
+    // cartList.forEach((c) => { // hacemos una copia de cartList para no modificar ni cartList ni products
+    //     cartListCopy.push(JSON.parse(JSON.stringify(c)))
+    // });
     
-    cartListCopy.forEach((product) => {
+    cartList.forEach((product) => {
         if (!cart.includes(product)) {
             product.quantity = 1;
             product.subtotal = product.quantity * product.price;
@@ -212,9 +216,9 @@ function addToCart(id) {
         }
     });
 
+    console.log('Product' , products);
     console.log('CartList',cartList);
     console.log('Cart', cart);  
-    console.log('productos', products)
     
     calculateSubtotals();
     calculateTotal();
@@ -226,9 +230,46 @@ function addToCart(id) {
 function removeFromCart(id) {
     // 1. Loop for to the array products to get the item to add to cart
     // 2. Add found product to the cartList array
+
+    cart.forEach((product) => {
+        if(product.id === id){
+            product.quantity = product.quantity - 1; 
+        }
+    });
+
 }
 
 // Exercise 10
 function printCart() {
     // Fill the shopping cart modal manipulating the shopping cart dom
+
+    let printCartHtml = "";
+
+    if(cart.length === 0){
+        //document.getElementById("printCart").innerHTML = `${sms}`;
+        document.getElementById("printCart").innerHTML = '<h2 class="text-center">Select Something</h2>';
+        document.getElementById("cartButons").style.display = 'none';
+    } else {
+        cart.forEach((product) => {
+            if (product.subtotalWithDiscount){
+                printCartHtml += "<tr><td>" + product.name + 
+                                "</td><td>" + "$" + product.price + 
+                                "</td><td>" + product.quantity + 
+                                "</td><td>" + "$" + product.subtotal + 
+                                "</td><td>" + "$" + product.subtotalWithDiscount +  
+                                "</td><td>" + '<button onclick="removeFromCart('+ product.id +')" class="btn btn-primary m-3">Remove one item</button>' + 
+                                "</td></tr>";
+            } else {
+                printCartHtml += "<tr><td>" + product.name + 
+                                "</td><td>" + "$" + product.price + 
+                                "</td><td>" + product.quantity + 
+                                "</td><td>" + "$" + product.subtotal +  
+                                "</td><td>" + '-' +
+                                "</td><td>" + '<button onclick="removeFromCart('+ product.id +')" class="btn btn-primary m-3">Remove one item</button>' + 
+                                "</td></tr>";
+            }
+        });
+        document.getElementById("printCart").innerHTML = "<table>" + "<th>Product</th><th>Product Price</th><th>Quantity</th><th>Total</th><th>Total with discount</th>" + `${printCartHtml}` + "</table>" + "<p><b>Total Cart: " + "$" + `${total}` + "</b></p><p><b>Total Cart with discount: " + "$" + `${totalWithDiscount}` + "</b></p>";
+        document.getElementById("cartButons").style.display = 'block';
+    }
 }
