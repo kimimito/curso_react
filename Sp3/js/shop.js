@@ -272,8 +272,6 @@ function removeFromCart(id) {
                 product.quantity = product.quantity - 1;
                 product.subtotal = product.quantity * product.price;
                 product.subtotalWithDiscount = 0;
-                calculateSubtotals();
-                applyPromotionsCart();
             } else {
                 cart.splice(cart.indexOf(product),1);  
             }
@@ -281,7 +279,8 @@ function removeFromCart(id) {
     });
 
     console.log('Cart', cart);
-    
+    calculateSubtotals();
+    applyPromotionsCart();
     calculateTotal();
     printCart();
 
