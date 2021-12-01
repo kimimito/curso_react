@@ -106,13 +106,13 @@ function calculateSubtotals() {
     var beautySub = 0;
     var clothesSub = 0;
 
-    cartList.forEach((product) => {
+    cart.forEach((product) => {
         if(product.type === 'grocery'){
-            grocerySub += Math.round(product.price * 100) / 100;
+            grocerySub += Math.round((product.price * product.quantity) * 100) / 100;
         } else if (product.type === 'beauty') {
-            beautySub += Math.round(product.price * 100) / 100;
+            beautySub += Math.round((product.price  * product.quantity) * 100) / 100;
         } else {
-            clothesSub += Math.round(product.price * 100) / 100;
+            clothesSub += Math.round((product.price  * product.quantity) * 100) / 100;
         } 
     });  
     subtotal.grocery.value = grocerySub;
@@ -172,7 +172,7 @@ function applyPromotionsCart() {
             let discount = product.quantity * (product.price / 3) * 2;
             product.subtotalWithDiscount = Math.round(discount * 100) / 100;
             subtotal.grocery.discount += Math.round(product.subtotalWithDiscount * 100) / 100;  
-        }
+        } 
         // comprobamos si hay descuento y lo aplicamos a totalWithDiscount
         if(product.subtotalWithDiscount > 0){
             totalWithDiscount += Math.round(product.subtotalWithDiscount * 100) / 100;
@@ -186,6 +186,15 @@ function applyPromotionsCart() {
 }
 
 // Exercise 7
+
+const findElementInCart = (id) => {
+    for(let i = 0; i < cart.length; i ++) {
+        if(cart[i].id === id) {
+            return cart[i]
+        }
+    }
+}
+
 function addToCart(id) {
     // Refactor previous code in order to simplify it 
     // 1. Loop for to the array products to get the item to add to cart
@@ -197,24 +206,49 @@ function addToCart(id) {
         }
     });
 
-    cart = [];
+    if (cart.length === 0) {
+        const newItem = {...cartList[0]};
+        newItem.quantity = 1;
+        newItem.subtotal = newItem.quantity * newItem.price;
+        cart.push(newItem);
+    } else {
+        const elementInCArt = findElementInCart(id);
+        if(elementInCArt) {
+            elementInCArt.quantity = elementInCArt.quantity + 1;
+            elementInCArt.subtotal = elementInCArt.quantity * elementInCArt.price;
+        }
+        if(!elementInCArt) {
+            for(let j = 0; j < cartList.length; j ++) {
+                if(cartList[j].id === id) {
+                    const newItem = {...cartList[j]};
+                    newItem.quantity = 1;
+                    newItem.subtotal = newItem.quantity * newItem.price;
+                    cart.push(newItem);
+                }
+            }
+        }
+    }
+
+    //cart = [];
 
     // var cartListCopy = [];
 
     // cartList.forEach((c) => { // hacemos una copia de cartList para no modificar ni cartList ni products
-    //     cartListCopy.push(JSON.parse(JSON.stringify(c)))
+    //     cartListCopy.push(JSON.parse(JSON.stringify(c)));
+    //     cartListCopy.push({...c})
     // });
     
-    cartList.forEach((product) => {
-        if (!cart.includes(product)) {
-            product.quantity = 1;
-            product.subtotal = product.quantity * product.price;
-            cart.push(product);
-        } else {
-            product.quantity = product.quantity + 1;
-            product.subtotal = product.quantity * product.price;    
-        }
-    });
+    // cartList.forEach((product) => {
+    //     if (!cart.includes(product)) {
+    //         product.quantity = 1;
+    //         product.subtotal = product.quantity * product.price;
+    //         cart.push(product);
+    //     } else {
+    //         product.quantity = product.quantity + 1;
+    //         product.subtotal = product.quantity * product.price;    
+    //     }
+    // });
+    
 
     console.log('Product' , products);
     console.log('CartList',cartList);
@@ -226,6 +260,7 @@ function addToCart(id) {
 
 }
 
+
 // Exercise 9
 function removeFromCart(id) {
     // 1. Loop for to the array products to get the item to add to cart
@@ -233,9 +268,22 @@ function removeFromCart(id) {
 
     cart.forEach((product) => {
         if(product.id === id){
-            product.quantity = product.quantity - 1; 
+            if(product.quantity > 1){
+                product.quantity = product.quantity - 1;
+                product.subtotal = product.quantity * product.price;
+                product.subtotalWithDiscount = 0;
+                calculateSubtotals();
+                applyPromotionsCart();
+            } else {
+                cart.splice(cart.indexOf(product),1);  
+            }
         }
     });
+
+    console.log('Cart', cart);
+    
+    calculateTotal();
+    printCart();
 
 }
 
