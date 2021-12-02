@@ -276,12 +276,11 @@ function removeFromCart(id) {
                 product.subtotal = product.quantity * product.price;
                 product.subtotalWithDiscount = 0;
             } else {
-                cart.splice(cart.indexOf(product),1);  
+                cart.splice(cart.indexOf(product));  
             }
         }
     });
 
-    console.log('Cart', cart);
     calculateSubtotals();
     applyPromotionsCart();
     calculateTotal();
@@ -296,7 +295,6 @@ function printCart() {
     let printCartHtml = "";
 
     if(cart.length === 0){
-        //document.getElementById("printCart").innerHTML = `${sms}`;
         document.getElementById("printCart").innerHTML = '<h2 class="text-center">Select Something</h2>';
         document.getElementById("cartButons").style.display = 'none';
     } else {

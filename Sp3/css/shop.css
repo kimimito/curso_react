@@ -10,10 +10,13 @@ body{
     color: rgb(255, 255, 255);
     font-size: 20px;
     font-weight: bold;
+    position: absolute;
+    right: 0px;
 }
 .nav-link:hover{
     color: white;
 }
+
 .grocery-img{
     width: 60%;
     margin: 1rem auto;
@@ -25,9 +28,30 @@ body{
     margin-right: 1rem;
 }
 
+/*sections*/
+.grocery, .beauty, .clothes{
+    justify-content: space-around;
+}
+.card-body{
+ padding: 0;
+}
+#grocery{
+    background-color: #FEDD14;
+    padding: 20px 0px;
+}
+#beauty{
+    background-color: #BBD131;
+    padding: 20px 0px;
+}
+#clothes{
+    background-color: #F3921D;
+    padding: 20px 0px;
+}
+
 /* cart */
 .modal-dialog{
     max-width: 90%;
+    margin: 20px auto;
 }
 table{
     text-align: left;
@@ -36,7 +60,7 @@ table{
 }
 td{
     border: 1px solid black;
-    padding-left: 20px;
+    padding-left: 10px;
 }
 tr:nth-child(even){
     background-color: #eee;
