@@ -58,10 +58,57 @@ table{
     width: 100%;
     margin-bottom: 20px;
 }
+
 td{
     border: 1px solid black;
     padding-left: 10px;
 }
 tr:nth-child(even){
     background-color: #eee;
+}
+#cartButons{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+/*media query*/
+@media (max-width: 1000px) {
+    .container {
+        max-width: 900px;
+    }
+    .grocery, .clothes, .beauty{
+        margin: 40px 0 !important;
+    }
+}
+@media (max-width: 767px) {
+    table .btn {
+      font-size: 10px;
+    }
+    table {
+        font-size: 10px;
+        text-align: center;
+    }
+    .modal{
+        font-size: 12px;
+    }
+    .modal-dialog{
+        max-width: 100%;
+        margin: 0;
+    }
+    #cartModal{
+        padding: 0;
+    }
+    td{
+        padding-left: 0px;
+    }
+    .modal-body{
+        padding: 10px;
+    }
+    #cartButons .btn{
+        font-size: 12px;
+    }
+    .modal-footer .btn{
+        font-size: 12px;
+    }
 }

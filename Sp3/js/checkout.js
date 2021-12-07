@@ -28,9 +28,6 @@ function validate(event) {
 
     [...form.elements].forEach((input) => {
 
-        if(input.id === 'btn'){ // evitamos validar este elemento (botonsubmit)
-            return true; 
-        }
 
         if (input.name === 'name'){ // validamos campo name 
             if (alfaPattern.test(input.value) && !maxLength(input.value)){
@@ -40,7 +37,8 @@ function validate(event) {
                 errorName.style.display = 'block';
                 errorRequired.style.display = 'block';
                 input.classList.add("error");
-                wrongFields.push(input.name);
+                wrongFields.push(input.name); 
+                return false;
             }
         }
 
@@ -51,6 +49,7 @@ function validate(event) {
                 input.classList.add("error");
                 errorRequired.style.display = 'block';
                 wrongFields.push(input.name);
+                return false;
             }
         }
 
@@ -63,6 +62,7 @@ function validate(event) {
                 errorRequired.style.display = 'block';
                 input.classList.add("error");
                 wrongFields.push(input.name);
+                return false;
             }
         }
 
@@ -75,6 +75,7 @@ function validate(event) {
                 errorRequired.style.display = 'block';
                 errorPassword.style.display = 'block';
                 wrongFields.push(input.name);
+                return false;
             }
         }
 
@@ -85,6 +86,7 @@ function validate(event) {
                 input.classList.add("error");
                 errorRequired.style.display = 'block';
                 wrongFields.push(input.name);
+                return false;
             }
         }  
 
@@ -97,16 +99,28 @@ function validate(event) {
                 errorRequired.style.display = 'block';
                 input.classList.add("error");
                 wrongFields.push(input.name);
+                return false;
             }
         }
-        
     });
 
     if(wrongFields.length === 0){ // revisamos que no hay errores y quitamos mensaje de campo requerido
         errorRequired.style.display = 'none';
     } else {
-        errorRequired.style.display = 'block'; 
+        errorRequired.style.display = 'block';
+        return false; 
     }
 
     return true;
+    
 }
+
+let inputs = document.getElementsByClassName('input');
+
+for(let i = 0; i < inputs.length; i ++) {
+    inputs[i].addEventListener("blur", validate);    
+}
+
+// if(validate()){
+//     alert('Your shipment is being processed ... You will receive your order shortly. Thank you for shopping at ShopNow');
+// }

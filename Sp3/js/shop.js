@@ -94,6 +94,7 @@ function buy(id) {
 function cleanCart() {
     cartList = [];
     cart = [];
+    counterItems();
     printCart();
 }
 
@@ -132,6 +133,8 @@ function calculateTotal() {
     for (key in subtotal) {
         total += subtotal[key].value;
     }
+
+    total = Math.round(total * 100) / 100;
 
     console.log('TOTAL: '+ total);
     
@@ -180,6 +183,8 @@ function applyPromotionsCart() {
             totalWithDiscount += product.subtotal;
         }
     });
+
+    totalWithDiscount = Math.round(totalWithDiscount * 100) / 100;
 
     console.log('TOTALWITHDISCOUNT: '+ totalWithDiscount);
 
@@ -260,9 +265,10 @@ function addToCart(id) {
     calculateSubtotals();
     calculateTotal();
     applyPromotionsCart();
+    counterItems();
+    printCart();
 
 }
-
 
 // Exercise 9
 function removeFromCart(id) {
@@ -276,7 +282,7 @@ function removeFromCart(id) {
                 product.subtotal = product.quantity * product.price;
                 product.subtotalWithDiscount = 0;
             } else {
-                cart.splice(cart.indexOf(product));  
+                cart.splice(cart.indexOf(product),1);  
             }
         }
     });
@@ -284,6 +290,7 @@ function removeFromCart(id) {
     calculateSubtotals();
     applyPromotionsCart();
     calculateTotal();
+    counterItems();
     printCart();
 
 }
@@ -305,7 +312,7 @@ function printCart() {
                                 "</td><td>" + product.quantity + 
                                 "</td><td>" + "$" + product.subtotal + 
                                 "</td><td>" + "$" + product.subtotalWithDiscount +  
-                                "</td><td>" + '<button onclick="removeFromCart('+ product.id +')" class="btn btn-primary m-3">Remove one item</button>' + 
+                                "</td><td>" + '<button onclick="removeFromCart('+ product.id +')" class="btn btn-primary m-1">-</button><button onclick="addToCart('+ product.id +')" class="btn btn-primary m-1">+</button>' + 
                                 "</td></tr>";
             } else {
                 printCartHtml += "<tr><td>" + product.name + 
@@ -313,11 +320,27 @@ function printCart() {
                                 "</td><td>" + product.quantity + 
                                 "</td><td>" + "$" + product.subtotal +  
                                 "</td><td>" + '-' +
-                                "</td><td>" + '<button onclick="removeFromCart('+ product.id +')" class="btn btn-primary m-3">Remove one item</button>' + 
+                                "</td><td>" + '<button onclick="removeFromCart('+ product.id +')" class="btn btn-primary m-1">-</button><button onclick="addToCart('+ product.id +')" class="btn btn-primary m-1">+</button>' + 
                                 "</td></tr>";
             }
         });
         document.getElementById("printCart").innerHTML = "<table>" + "<th>Product</th><th>Product Price</th><th>Quantity</th><th>Total</th><th>Total with discount</th>" + `${printCartHtml}` + "</table>" + "<p><b>Total Cart: " + "$" + `${total}` + "</b></p><p><b>Total Cart with discount: " + "$" + `${totalWithDiscount}` + "</b></p>";
-        document.getElementById("cartButons").style.display = 'block';
+        document.getElementById("cartButons").style.display = 'flex';
     }
+}
+
+function counterItems(){
+
+    let cartCounter = 0;// recoremos cart para sumar numeto total de items
+
+    cart.forEach((product) => {
+        cartCounter += product.quantity;   
+    });
+
+    if(cart.length === 0){
+        document.getElementById("cartCounter").innerHTML = 'MyCart';
+    } else {
+        document.getElementById("cartCounter").innerHTML = `${cartCounter}`+' Items in MyCart';
+    }
+    
 }
