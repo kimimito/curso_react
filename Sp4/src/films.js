@@ -1,46 +1,25 @@
-//codigo para visualizacion en web
-import movies from './dataTest.js';
-
-document.addEventListener("DOMContentLoaded", function() {
-  getAllDirectors(movies);
-});
-
-function printSelect(directors){
-  let printSelect = "";
-  directors.forEach((item) => {
-    printSelect += "<option>" + `${item}` + "</option>";
-  });
-  document.getElementById("selctDirector").innerHTML = `${printSelect}`;
-}
-
-document.getElementById("selctDirector").onchange = function() {renderCard()};
-function renderCard() {
-  let director = document.getElementById("selctDirector").value;
-  document.getElementById("demo").innerHTML = "You selected: " + director;
-}
-
-
-
 // Exercise 1: Get the array of all directors.
 function getAllDirectors(moviesData) {
   
   let allDirectors = [];
 
-  allDirectors = moviesData.movies.map(movie => movie.director);
-  //allDirectors = moviesData.map(movie => movie.director); // descomentar para el test y comentar linea superior
+  allDirectors = moviesData.map(movie => movie.director); 
 
   allDirectors = allDirectors.filter((item, index) => {
     return allDirectors.indexOf(item) === index;
   })
 
-  printSelect(allDirectors);// comentar para el test
-
-  console.log("EXERCICE 1 ->", allDirectors);
   return allDirectors;
 }
 
 // Exercise 2: Get the films of a certain director
 function getMoviesFromDirector(moviesData, director) {
+
+  let movisFromDirector = [];
+
+  movisFromDirector = moviesData.filter( (movie) => movie.director === director );
+
+  return movisFromDirector;
  
 }
 
