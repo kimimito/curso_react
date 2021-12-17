@@ -79,12 +79,54 @@ function orderByYear(moviesData) {
 }
 
 // Exercise 6: Calculate the average of the movies in a category
-function moviesAverageByCategory() {
+function moviesAverageByCategory(moviesData, genreVal) {
+
+  let noviesForCategory = [];
+  let avarage = ""
+
+  moviesData.filter((movie) => {
+    if(movie.genre.includes(genreVal) && movie.score != false ){
+      noviesForCategory.push(movie);
+    }
+  })
+
+  avarage = noviesForCategory.reduce((acumulador, valorActual) => {
+    return acumulador + valorActual.score;
+  },0);
+
+  avarage = avarage / noviesForCategory.length;
+
+  return avarage;
 
 }
 
 // Exercise 7: Modify the duration of movies to minutes
-function hoursToMinutes() {
+function hoursToMinutes(moviesData) {
+
+  let timeToMinutes = moviesData.map( element => {
+    return {...element};
+  });
+
+  let result = timeToMinutes.map((movie)=> {
+    const time = movie.duration.split(' ');
+    let hour = time[0] || 0;
+    let min = time[1] || 0;
+
+    if(hour){
+      hour = hour.replace(/[^0-9\.]+/g, '');
+      hour = Number(hour) * 60;
+    }
+
+    if(min){
+      min = min.replace(/[^0-9\.]+/g, '');
+      min = Number(min);
+    }
+
+    movie.duration = hour + min;
+    return movie;
+  });
+
+  return result;
 
 }
 

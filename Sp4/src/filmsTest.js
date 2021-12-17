@@ -1,10 +1,12 @@
 //codigo para visualizacion en web
 import movies from './dataTest.js';
 
+let moviesData = hoursToMinutes(movies.movies); // recuperamos en array movis con la duracion pasada a minutos
+
 document.addEventListener("DOMContentLoaded", function() {
-  getAllDirectors(movies.movies);
-  moviesAverageByCategory(movies.movies);
-  printCard(movies.movies);
+  getAllDirectors(moviesData);
+  moviesGenreForSelect(moviesData);
+  printCard(moviesData);
 });
 
 //printamos los selects Director y Genero
@@ -16,18 +18,6 @@ function printSelectDirectors(options){
   document.getElementById("selectDirector").innerHTML = '<option>Select Director</option>'+`${printSelect}`;
 }
 
-document.getElementById("selectDirector").onchange = function() {getDirector()};
-function getDirector() {
-  let director = document.getElementById("selectDirector").value;
-  getMoviesFromDirector(movies.movies, director);
-  moviesAverageOfDirector(movies.movies, director);
-  if( director === 'Select Director'){
-    getAllDirectors(movies.movies);
-    moviesAverageByCategory(movies.movies);
-    printCard(movies.movies);
-  }
-}
-
 function printSelectGenere(options){
   let printSelect = "";
   options.forEach((item) => {
@@ -37,21 +27,46 @@ function printSelectGenere(options){
 }
 
 
+// funciones onchange de los selects
+document.getElementById("selectDirector").onchange = function() {getDirector()};
+function getDirector() {
+  let director = document.getElementById("selectDirector").value;
+  getMoviesFromDirector(moviesData, director);
+  moviesAverageOfDirector(moviesData, director);
+  if( director === 'Select Director'){
+    getAllDirectors(moviesData);
+    moviesAverageByCategory(moviesData);
+    printCard(moviesData);
+  }
+}
+
+document.getElementById("selectGenre").onchange = function() {getGenre()};
+function getGenre() {
+  let genreVal = document.getElementById("selectGenre").value;
+  moviesAverageByCategory(moviesData, genreVal);
+  if( genreVal === 'Select Genre'){
+    getAllDirectors(moviesData);
+    moviesAverageByCategory(moviesData);
+    printCard(moviesData);
+  }
+}
+
 
 // ordenamos alfabeticamente y por año
 document.getElementById("orderAlphabetically").onclick = function() {orderAlpha()};
 function orderAlpha() {
-  orderAlphabetically(movies.movies);
-  getAllDirectors(movies.movies);
+  orderAlphabetically(moviesData);
+  getAllDirectors(moviesData);
   document.getElementById("average_director").innerHTML = '';
 }
 
 document.getElementById("orderYear").onclick = function() {orderYear()};
 function orderYear() {
-  orderByYear(movies.movies);
-  getAllDirectors(movies.movies);
+  orderByYear(moviesData);
+  getAllDirectors(moviesData);
   document.getElementById("average_director").innerHTML = '';
 }
+
 
 // printamos la card de peliculas
 function printCard(dataCard){
@@ -68,6 +83,7 @@ function printCard(dataCard){
   });
   document.getElementById("card_content").innerHTML = `${printSelect}`;
 }
+
 
 
 
@@ -169,25 +185,49 @@ function orderByYear(moviesData) {
 }
 
 // Exercise 6: Calculate the average of the movies in a category
-function moviesAverageByCategory(moviesData) {
+function moviesAverageByCategory(moviesData ,genreVal ) {
+
+  let noviesForCategory = [];
+  let avarage = ""
+
+  moviesData.filter((movie) => {
+    if(movie.genre.includes(genreVal) && movie.score != false ){
+      noviesForCategory.push(movie);
+    }
+  })
+
+  avarage = noviesForCategory.reduce((acumulador, valorActual) => {
+    return acumulador + valorActual.score;
+  },0);
+
+  avarage = avarage / noviesForCategory.length;
+
+  moviesAverageOfDirector(noviesForCategory, genreVal);
+
+  printCard(noviesForCategory);
+  
+}
+
+
+//
+function moviesGenreForSelect(moviesData){
 
   let allGenre = [];
   let genre = [];
   
   allGenre = moviesData.map(movie => movie.genre);
-  console.log('allGenre',allGenre)
-  allGenre = allGenre.filter((item, index) => {
-    console.log(item)
-    console.log(index)
-    console.log(allGenre.indexOf(item))
-    return allGenre.indexOf(item) === index;
-  })
+
+  allGenre.forEach((item) => {
+    item.forEach((i) => {
+      if(!genre.includes(i)){
+        genre.push(i);
+      }
+    });
+  }); 
   
+  printSelectGenere(genre);
 
-  printSelectGenere(allGenre);
-
-
-  console.log("EXERCICE 6 ->", allGenre);
+  console.log("EXERCICE 6 Plus ->", genre);
   return genre;
 }
 
@@ -199,12 +239,14 @@ function hoursToMinutes(moviesData) {
   });
 
   let result = timeToMinutes.map((movie)=> {
-      movie.duration = movie.duration.replace(/[^0-9\.]+/g, '');
-      movie.duration = (Number(movie.duration.charAt(0))*60) + Number(movie.duration.slice(-2)) + ' min';
+    const time = movie.duration.split(' ');
+    let hour = time[0]?.replace(/[^0-9\.]+/g, '');
+    let min = time[1]?.replace(/[^0-9\.]+/g, '');
+    movie.duration = (Number(hour) * 60) + Number(min) + ' min';
     return movie;
   });
 
-  console.log("EXERCICE 7 ->", result);
+  //console.log("EXERCICE 7 ->", result);
   return result;
 }
 
