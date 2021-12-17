@@ -15,26 +15,66 @@ function getAllDirectors(moviesData) {
 // Exercise 2: Get the films of a certain director
 function getMoviesFromDirector(moviesData, director) {
 
-  let movisFromDirector = [];
+  let moviesFromDirector = [];
 
-  movisFromDirector = moviesData.filter( (movie) => movie.director === director );
+  moviesFromDirector = moviesData.filter( (movie) => movie.director === director );
 
-  return movisFromDirector;
+  return moviesFromDirector;
  
 }
 
 // Exercise 3: Calculate the average of the films of a given director.
-function moviesAverageOfDirector(array, director) {
+function moviesAverageOfDirector(moviesData, director) {
+
+  let average = 0;
+
+  let moviesCounter = moviesData.reduce((acumulador, valorActual) => {
+    if(valorActual.director === director) {
+      acumulador++;
+      average += valorActual.score;  
+    }
+    return acumulador;
+  }, 0);
+  
+  average =  Math.round((average / moviesCounter) * 100) / 100;
+  
+  return average;
   
 }
 
 // Exercise 4:  Alphabetic order by title 
-function orderAlphabetically(array) {
+function orderAlphabetically(moviesData) {
+
+  let alphaOrder = [];
+
+  let titles = moviesData.map( (item) => item.title);
+
+  alphaOrder = titles.sort().slice(0,20);
+
+  return alphaOrder;
   
 }
 
 // Exercise 5: Order by year, ascending
-function orderByYear() {
+function orderByYear(moviesData) {
+
+  let yearOrder = moviesData.map( element => {
+    return {...element};
+  });
+
+  let result = yearOrder.sort((x, y) => {
+    if (x.year < y.year) {
+        return -1;
+    } else if (x.year > y.year) {
+        return 1;
+    } else if (x.title < y.title){
+        return -1;
+    } else {
+        return 1;
+    }
+  });
+
+  return result;
 
 }
 
