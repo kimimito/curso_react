@@ -1,0 +1,36 @@
+body{
+    margin: 22px 20px
+}
+#card_content{
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+.card{
+    width: 43%;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 5px;
+}
+@media (min-width: 1800px) {
+    .card{
+        width: 18%;
+    } 
+}
+@media (max-width: 1799px) {
+    .card{
+        width: 30%;
+    } 
+}
+@media (max-width: 1000px) {
+    .card{
+        width: 46%;
+    } 
+}
+@media (max-width: 767px) {
+    .card{
+        width: 100%;
+    } 
+}
