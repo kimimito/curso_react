@@ -250,9 +250,5 @@ function hoursToMinutes(moviesData) {
   return result;
 }
 
-// Exercise 8: Get the best film of a year
-function bestFilmOfYear() {
-  
-}
 
 
