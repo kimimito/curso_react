@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+body {
+    font-family: Poppins;
+    background-color: #FEDD14;
+}
+#errorPassword, #errorName, #errorPhone, #errorRequired, #errorMail {
+    display: none;
+    color: red;
+    position: absolute;
+}
+input.error{
+    border-color: red;
+}
+
+h2{
+    background-color: #F3921D;
+    font-size: 25px;
+}
+h2 .fas, .far{
+    margin-right: 10px !important;
+}
+h5{
+    margin-bottom: 0px;
+}
+.input-content{
+    margin-bottom: 2rem;
+}
+
+#form .row{
+    background-color: #BBD131;
+    margin: 20px 0px;
+    padding: 10px;
+}
+#form input{
+    width: 100%;
+}
+.backLink{
+    float: left;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    h2{
+        font-size: 20px;
+    }
+    h2 .fas, .far{
+        margin-right: 0px !important;
+    }
+}

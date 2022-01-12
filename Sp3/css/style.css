@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+body{
+    font-family: Poppins;
+    color: #5A5A5A;
+    display: flex;
+    min-height: 80vh;
+    margin: 0;
+}
+main{
+    margin: auto; 
+}
+.index-logo{
+    width: 100%;
+    max-width: 600px;
+}
+.btnGrocery{
+    background-color: #FEDD14;
+    border: 2px solid #FEDD14;
+}
+.btnBeauty{
+    background-color: #BBD131;
+    border: 2px solid #BBD131;
+}
+.btnClothes{
+    background-color: #F3921D;
+    border: 2px solid #F3921D;
+}
+.btn:hover{
+    background-color: #FFF;
+}
