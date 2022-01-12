@@ -27,12 +27,16 @@ const fetchApi = async () => {
       return response = 'Sorry, we are experiencing problems, please try again later.';
   });
 
-  console.log(response)
+  printJoke(response);
+
 }
 
 //capturar el click del boton
-document.getElementById('showjoke').addEventListener('click', function () {
-  console.log("You finally clicked without jQuery");
-});
+const button = document.getElementById('getjoke')!;
+button.onclick = fetchApi; 
 
-fetchApi();
+//printar el chiste
+const printJoke = (response: any) => {
+  const showjoke = document.getElementById('showjoke')!;
+  showjoke.innerHTML = '<p>' + `${response.joke}` + '</p>';
+}

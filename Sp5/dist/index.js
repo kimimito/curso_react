@@ -28,11 +28,14 @@ const fetchApi = () => __awaiter(void 0, void 0, void 0, function* () {
     }).catch((response) => {
         return response = 'Sorry, we are experiencing problems, please try again later.';
     });
-    console.log(response);
+    printJoke(response);
 });
 //capturar el click del boton
-document.getElementById('showjoke').addEventListener('click', function () {
-    console.log("You finally clicked without jQuery");
-});
-fetchApi();
+const button = document.getElementById('getjoke');
+button.onclick = fetchApi;
+//printar el chiste
+const printJoke = (response) => {
+    const showjoke = document.getElementById('showjoke');
+    showjoke.innerHTML = '<p>' + `${response.joke}` + '</p>';
+};
 //# sourceMappingURL=index.js.map
