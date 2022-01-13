@@ -1,3 +1,11 @@
 .vote-buttons button{
     transform: rotate(90deg);
 }
+.card{
+    width: 50%;
+}
+@media (max-width: 767px) {
+    .card{
+        width: 95%;
+    } 
+}
