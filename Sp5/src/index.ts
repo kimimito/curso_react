@@ -68,6 +68,7 @@ const getJoke = <HTMLInputElement>document.getElementById('getjoke');
       fetchApiChuckJoke();
       e.target.dataset.value = '1';
     }
+    fetchApiCat();
   };
 
 //printar el chiste
@@ -115,7 +116,7 @@ const enableBtn = () => {
 //llamada a al api para obtener info meteorologica
 const fetchApiMeteo = async () => {
 
-  const response = await window.fetch(' http://api.weatherapi.com/v1/current.json?key=9253095cf0c541748e0115713221301&q=Barcelona', {
+  const response = await window.fetch('http://api.weatherapi.com/v1/current.json?key=9253095cf0c541748e0115713221301&q=Barcelona', {
     method: 'GET',
   }).then((response) => {
     if(response.status === 200){
@@ -135,5 +136,27 @@ const printMeteo = (response: any) => {
   showMeteo.innerHTML = '<p><img src="'+`http:${response.current.condition.icon}` + '"/>' + `${response.current.temp_c}°C` + '</p>';
 }
 
+// refrescar la info meteorologica
 fetchApiMeteo();
+
+//fondo dinamico
+const fetchApiCat = async () => {
+
+  const response :any = await window.fetch('https://api.thecatapi.com/v1/images/search', {
+    method: 'GET',
+    headers: {
+      'api_key': 'eb7f14d8-2772-4aef-80ef-ac702346b87d',
+    },
+    }).then((response) => {
+      if(response.status === 200){
+        return response.json();
+      }
+    }).catch((error) => {
+        return console.log('apiCat error:', error);
+    });
+
+    const bgCat = <HTMLInputElement>document.getElementById('bg-cat');
+    bgCat.style.backgroundImage = 'url("'+`${response[0].url}` + '")';
+}
+
 
