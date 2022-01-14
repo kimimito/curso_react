@@ -28,26 +28,51 @@ const fetchApiJoke = () => __awaiter(void 0, void 0, void 0, function* () {
     }).catch((response) => {
         return response = 'Sorry, we are experiencing problems, please try again later.';
     });
-    printJoke(response);
-    getVote(response);
+    printJoke(response.joke);
+    getVote(response.joke);
     // habilitamos botones de voto
     enableBtn();
 });
-//capturar el click del boton
+//llamada a al api para obtener chiste de Chuck Norris
+const fetchApiChuckJoke = () => __awaiter(void 0, void 0, void 0, function* () {
+    const response = yield window.fetch('https://api.chucknorris.io/jokes/random', {
+        method: 'GET',
+    }).then((response) => {
+        if (response.status === 200) {
+            return response.json();
+        }
+    }).catch((response) => {
+        return response = 'Sorry, we are experiencing problems, please try again later.';
+    });
+    printJoke(response.value);
+    getVote(response.value);
+    // habilitamos botones de voto
+    enableBtn();
+});
+//alternar las llamadas de las apis con el click del boton (get joke)
 const getJoke = document.getElementById('getjoke');
-getJoke.onclick = fetchApiJoke;
+getJoke.onclick = (e) => {
+    if (e.target.dataset.value === '1') {
+        fetchApiJoke();
+        getJoke.dataset.value = '2';
+    }
+    else {
+        fetchApiChuckJoke();
+        e.target.dataset.value = '1';
+    }
+};
 //printar el chiste
-const printJoke = (response) => {
+const printJoke = (joke) => {
     const showjoke = document.getElementById('showjoke');
-    showjoke.innerHTML = '<p>' + `${response.joke}` + '</p>';
+    showjoke.innerHTML = '<p>' + `${joke}` + '</p>';
 };
 //generar array (reportAcudits)
 const btnVotecontainer = document.getElementById('btn-vote-container');
 let reportAcudits = [];
-const getVote = (response) => {
+const getVote = (joke) => {
     btnVotecontainer.onclick = (e) => {
         const newItem = Object.assign({}, reportAcudits[0]);
-        newItem.joke = response.joke;
+        newItem.joke = joke;
         newItem.score = e.target.dataset.score;
         newItem.date = new Date().toISOString();
         reportAcudits.push(newItem);

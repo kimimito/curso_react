@@ -9,6 +9,9 @@
 
 
 
+
+
+
 //llamada a al api para obtener chiste
 const fetchApiJoke = async () => {
 
@@ -25,22 +28,52 @@ const fetchApiJoke = async () => {
       return response = 'Sorry, we are experiencing problems, please try again later.';
   });
 
-  printJoke(response);
-  getVote(response);
+  printJoke(response.joke);
+  getVote(response.joke);
 
   // habilitamos botones de voto
   enableBtn();
 
 }
 
-//capturar el click del boton
+//llamada a al api para obtener chiste de Chuck Norris
+const fetchApiChuckJoke = async () => {
+
+  const response = await window.fetch('https://api.chucknorris.io/jokes/random', {
+    method: 'GET',
+  }).then((response) => {
+    if(response.status === 200){
+      return response.json();
+    }
+  }).catch((response) => {
+      return response = 'Sorry, we are experiencing problems, please try again later.';
+  });
+
+  printJoke(response.value);
+  getVote(response.value);
+
+  // habilitamos botones de voto
+  enableBtn();
+
+}
+
+//alternar las llamadas de las apis con el click del boton (get joke)
 const getJoke = <HTMLInputElement>document.getElementById('getjoke');
-getJoke.onclick = fetchApiJoke; 
+
+  getJoke.onclick = (e: any) => {
+    if(e.target.dataset.value === '1'){
+      fetchApiJoke();
+      getJoke.dataset.value ='2';
+    } else {
+      fetchApiChuckJoke();
+      e.target.dataset.value = '1';
+    }
+  };
 
 //printar el chiste
-const printJoke = (response: any) => {
+const printJoke = (joke: string) => {
   const showjoke = <HTMLInputElement>document.getElementById('showjoke');
-  showjoke.innerHTML = '<p>' + `${response.joke}` + '</p>';
+  showjoke.innerHTML = '<p>' + `${joke}` + '</p>';
 }
 
 //generar array (reportAcudits)
@@ -48,10 +81,10 @@ const btnVotecontainer = <HTMLInputElement> document.getElementById('btn-vote-co
 
 let reportAcudits: any = [];
 
-const getVote = (response: any) => {
+const getVote = (joke: string) => {
   btnVotecontainer.onclick = (e: any) => {
     const newItem = {...reportAcudits[0]};
-    newItem.joke = response.joke;
+    newItem.joke = joke;
     newItem.score = e.target.dataset.score;
     newItem.date = new Date().toISOString();
     reportAcudits.push(newItem);
@@ -103,3 +136,4 @@ const printMeteo = (response: any) => {
 }
 
 fetchApiMeteo();
+
