@@ -1,6 +1,4 @@
 "use strict";
-// codigo que falla (export is not defined) si no descomentas del html (<script>var exports = {};</script>)
-// const world = 'world';
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -10,10 +8,6 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-// export function hello(world: string ): string {
-//   return `Hello ${world}! `;
-// }
-// hello(world);
 //llamada a al api para obtener chiste
 const fetchApiJoke = () => __awaiter(void 0, void 0, void 0, function* () {
     const response = yield window.fetch('https://icanhazdadjoke.com', {

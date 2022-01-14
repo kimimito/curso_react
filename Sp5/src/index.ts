@@ -1,17 +1,3 @@
-// codigo que falla (export is not defined) si no descomentas del html (<script>var exports = {};</script>)
-// const world = 'world';
-
-// export function hello(world: string ): string {
-//   return `Hello ${world}! `;
-// }
-
-// hello(world);
-
-
-
-
-
-
 //llamada a al api para obtener chiste
 const fetchApiJoke = async () => {
 
