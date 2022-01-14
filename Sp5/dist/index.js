@@ -30,8 +30,6 @@ const fetchApiJoke = () => __awaiter(void 0, void 0, void 0, function* () {
     });
     printJoke(response.joke);
     getVote(response.joke);
-    // habilitamos botones de voto
-    enableBtn();
 });
 //llamada a al api para obtener chiste de Chuck Norris
 const fetchApiChuckJoke = () => __awaiter(void 0, void 0, void 0, function* () {
@@ -46,8 +44,6 @@ const fetchApiChuckJoke = () => __awaiter(void 0, void 0, void 0, function* () {
     });
     printJoke(response.value);
     getVote(response.value);
-    // habilitamos botones de voto
-    enableBtn();
 });
 //alternar las llamadas de las apis con el click del boton (get joke)
 const getJoke = document.getElementById('getjoke');
@@ -60,7 +56,10 @@ getJoke.onclick = (e) => {
         fetchApiChuckJoke();
         e.target.dataset.value = '1';
     }
+    //cambiamos fondo de pagina
     fetchApiCat();
+    // habilitamos botones de voto
+    enableBtn();
 };
 //printar el chiste
 const printJoke = (joke) => {
@@ -77,8 +76,10 @@ const getVote = (joke) => {
         newItem.score = e.target.dataset.score;
         newItem.date = new Date().toISOString();
         reportAcudits.push(newItem);
+        // deshabilitamos botones de voto
         disableBtn();
     };
+    //mostramos el nuevo array generado por las votaciones
     console.log('reportAcudits', reportAcudits);
 };
 // inhabilitamos los botones de voto despues de la votacion
@@ -107,14 +108,21 @@ const fetchApiMeteo = () => __awaiter(void 0, void 0, void 0, function* () {
         return console.log('apiWeather error:', error);
     });
     printMeteo(response);
+    console.log('load');
 });
 //printamos la info metereologica
 const printMeteo = (response) => {
     const showMeteo = document.getElementById('show-meteo');
-    showMeteo.innerHTML = '<p><img src="' + `http:${response.current.condition.icon}` + '"/>' + `${response.current.temp_c}°C` + '</p>';
+    const icon = response.current.condition.icon;
+    const temp = response.current.temp_c;
+    const time = new Date().toLocaleTimeString().slice(0, -3);
+    showMeteo.innerHTML = '<p><img src="' + `http:${icon}` + '"/>' + `<span>${temp}°C</span>` + `<span>${time}</span>` + '</p>';
 };
 // refrescar la info meteorologica
-fetchApiMeteo();
+window.onload = () => {
+    fetchApiMeteo();
+};
+window.setInterval(fetchApiMeteo, 60000);
 //fondo dinamico
 const fetchApiCat = () => __awaiter(void 0, void 0, void 0, function* () {
     const response = yield window.fetch('https://api.thecatapi.com/v1/images/search', {

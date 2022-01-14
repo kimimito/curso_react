@@ -31,9 +31,6 @@ const fetchApiJoke = async () => {
   printJoke(response.joke);
   getVote(response.joke);
 
-  // habilitamos botones de voto
-  enableBtn();
-
 }
 
 //llamada a al api para obtener chiste de Chuck Norris
@@ -52,9 +49,6 @@ const fetchApiChuckJoke = async () => {
   printJoke(response.value);
   getVote(response.value);
 
-  // habilitamos botones de voto
-  enableBtn();
-
 }
 
 //alternar las llamadas de las apis con el click del boton (get joke)
@@ -68,7 +62,12 @@ const getJoke = <HTMLInputElement>document.getElementById('getjoke');
       fetchApiChuckJoke();
       e.target.dataset.value = '1';
     }
+
+    //cambiamos fondo de pagina
     fetchApiCat();
+    // habilitamos botones de voto
+    enableBtn();
+
   };
 
 //printar el chiste
@@ -90,10 +89,12 @@ const getVote = (joke: string) => {
     newItem.date = new Date().toISOString();
     reportAcudits.push(newItem);
 
+    // deshabilitamos botones de voto
     disableBtn();
   }
   
-  console.log('reportAcudits',reportAcudits)
+  //mostramos el nuevo array generado por las votaciones
+  console.log('reportAcudits',reportAcudits);
 }
 
 // inhabilitamos los botones de voto despues de la votacion
@@ -127,17 +128,25 @@ const fetchApiMeteo = async () => {
   });
 
   printMeteo(response);
+  console.log('load');
 
 }
 
 //printamos la info metereologica
 const printMeteo = (response: any) => {
   const showMeteo = <HTMLInputElement>document.getElementById('show-meteo');
-  showMeteo.innerHTML = '<p><img src="'+`http:${response.current.condition.icon}` + '"/>' + `${response.current.temp_c}°C` + '</p>';
+  const icon = response.current.condition.icon;
+  const temp = response.current.temp_c;
+  const time = new Date().toLocaleTimeString().slice(0,-3);
+  
+  showMeteo.innerHTML = '<p><img src="'+`http:${icon}` + '"/>' + `<span>${temp}°C</span>` + `<span>${time}</span>` +'</p>';
 }
 
 // refrescar la info meteorologica
-fetchApiMeteo();
+window.onload = () => {
+  fetchApiMeteo();
+};
+window.setInterval(fetchApiMeteo, 60000);
 
 //fondo dinamico
 const fetchApiCat = async () => {

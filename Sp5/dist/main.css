@@ -10,9 +10,12 @@
     transform: rotate(90deg);
 }
 #show-meteo{
-    width: 110px;
+    width: 175px;
     height: 65px;
     background-color: rgba(255, 255, 255, 0.5) !important;
+}
+#show-meteo span{
+   margin-right: 15px;
 }
 .card{
     width: 25%;
@@ -25,6 +28,6 @@
 }
 @media (max-width: 767px) {
     .card{
-        width: 95%;
+        width: 85%;
     } 
 }
