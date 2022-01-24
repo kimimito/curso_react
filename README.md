@@ -9,6 +9,11 @@ repo: https://github.com/kimimito/curso_react
 >
 >https://developers.google.com/web
 
+>**online Cheatsheet:**
+>
+>https://mbeaudru.github.io/modern-js-cheatsheet/
+>
+>https://www.frontendcheatsheets.com/
 
 <br/>
 
