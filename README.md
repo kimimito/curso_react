@@ -11,6 +11,8 @@ repo: https://github.com/kimimito/curso_react
 
 >**online Cheatsheet:**
 >
+>http://www.developer-cheatsheets.com/es6
+>
 >https://mbeaudru.github.io/modern-js-cheatsheet/
 >
 >https://www.frontendcheatsheets.com/
