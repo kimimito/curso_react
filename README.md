@@ -8,6 +8,8 @@ repo: https://github.com/kimimito/curso_react
 >https://developer.mozilla.org/es/
 >
 >https://developers.google.com/web
+>
+>https://www.w3schools.com/js/default.asp
 
 >**online Cheatsheet:**
 >
