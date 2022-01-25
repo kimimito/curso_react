@@ -94,6 +94,9 @@ Implementar una web que muestre contenido de unas apis con TypeScript
 ## Sp6
 Inicio de React (desarrollar un tutorial)
 
+- Instalacion del sprint con el comando "**npm sp6**"
+
+**Comandos npm**
 ### `npm start`
 
 Runs the app in the development mode.\
