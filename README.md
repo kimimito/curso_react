@@ -120,9 +120,18 @@ La compilación se minimiza y los nombres de archivo incluyen los hashes.\
 
 Consulte la sección sobre [implementación](https://facebook.github.io/create-react-app/docs/deployment) para obtener más información.
 
+>**Dependencias**
+>
+>**styled-components**:
+>npm i styled-components
+>
+
 >**Recursos**
 >
 >**Iniciando React:** https://es.reactjs.org/docs/create-a-new-react-app.html
+>
+>**styled-components:** https://styled-components.com/
+
 
 <br/>
 

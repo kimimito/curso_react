@@ -10,8 +10,8 @@ function App() {
     <div className="wrapper">
       {History.map(txt => (
         <Escena 
-        key={txt.txt}
-        name={txt.txt}
+          key={txt}
+          props={txt}
         />
       ))}
     </div>
