@@ -1,19 +1,13 @@
 import React from 'react';
-import './App.css';
+//import './App.css';
+import {Escena} from "../Escena/Escena";
+import {story} from './data';
 
-
-import {History} from './data';
-import Escena from "../Escena/Escena";
 
 function App() {
   return (
     <div className="wrapper">
-      {History.map(txt => (
-        <Escena 
-          key={txt}
-          props={txt}
-        />
-      ))}
+      <Escena props={story}></Escena>
     </div>
   );
 }
