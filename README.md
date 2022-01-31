@@ -138,6 +138,25 @@ Consulte la sección sobre [implementación](https://facebook.github.io/create-r
 <br/>
 
 ## Sp7
+React II (desarrollar un presupuesto)
+
+- Instalacion del sprint con el comando "**npm install**"
+
+**Comandos npm**
+### `npm start`
+
+>**Dependencias**
+>
+>**styled-components**:
+>npm i styled-components
+>
+
+>**Recursos**
+>
+>**React-Beta:** https://beta.reactjs.org/
+>
+>**styled-components:** https://styled-components.com/
+
 
 <br/>
 
