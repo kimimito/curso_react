@@ -141,9 +141,7 @@ Consulte la sección sobre [implementación](https://facebook.github.io/create-r
 React II (desarrollar un presupuesto)
 
 - Instalacion del sprint con el comando "**npm install**"
-
-**Comandos npm**
-### `npm start`
+- arrancar proyecto "**npm start**"
 
 >**Dependencias**
 >
@@ -155,7 +153,7 @@ React II (desarrollar un presupuesto)
 >
 >**React-Beta:** https://beta.reactjs.org/
 >
->**styled-components:** https://styled-components.com/
+>**Curso de react:** https://bluuweb.github.io/react-udemy/
 
 
 <br/>
