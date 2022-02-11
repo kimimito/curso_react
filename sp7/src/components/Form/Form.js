@@ -51,11 +51,11 @@ const Form = () => {
         const { budgetWeb, budgetSeo, budgetAds, nPag, nLang } = data;
         let totalBudgetWeb = budgetWeb;
 
-        if (nPag >= 2 || nLang >= 2) {
+        if ((nPag >= 2 || nLang >= 2) && budgetWeb !== 0) {
             totalBudgetWeb = budgetWeb + nPag * nLang * 30;
         }
         const total = totalBudgetWeb + budgetSeo + budgetAds;
-        
+
         localStorage.setItem("data", JSON.stringify({ ...data, total }));
         setTotal(total)
     }, [data]);
