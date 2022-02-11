@@ -1,62 +1,86 @@
 import React, {useState} from 'react';
 import {Checkbox} from '../Checkbox/Checkbox';
+import {Panel} from '../Panel/Panel';
+import {StyledPanel} from './style'
 
 const Form = () => {
-
-    const [total, setTotal] = useState(0);
     
     const [data, setData] = useState({
         budgetWeb: 0,
         budgetSeo: 0,
-        budgetAds: 0
+        budgetAds: 0,
+        nPag: 1,
+        nLang: 1,
+        total: 0
     })
 
-    const onChange = ({name, value, checked}) => {  
+    const [showComponent, setShowComponent] = useState(false);
+
+    const setBuget = ({name, value, checked}) => {  
 
         value = parseInt(value);
-        let budget = 0;
         
         if(!checked){
-            budget = total + value;
             setData({
                 ...data,
-                [name] : value
+                [name] : value,
             })
         } else {
-            budget = total - value;
             setData({
                 ...data,
-                [name] : 0
+                [name] : 0,
             })
         }
-        setTotal(budget);
+        
+        if(name === 'budgetWeb'){
+            setShowComponent(!showComponent);
+            
+        }
+
     }
 
+    const setPages = (name, value) =>{
+        value = parseInt(value);
+        setData({
+            ...data,
+            [name] : value
+        })
+        console.log('data2',data)    
+    }
+    
     console.log('data',data)
+
+    localStorage.setItem("data", JSON.stringify(data));
+    console.log('localStorage',JSON.parse(localStorage.getItem("data")));   
 
     return (
         <div>
-            <p>¿Que quieres hacer?</p>
             <Checkbox
                 label='Una pagina Web (500€)'
                 name="budgetWeb"
                 value= '500'
-                onChange={onChange}
+                onChange={setBuget}
             />
+            {showComponent && 
+                <StyledPanel>
+                    <Panel label='Numero de paginas' value={data.nPag} name="nPag" onChange={setPages} className="mb-4" />
+                    <Panel label='Numero de idiomas' value={data.nLang} name="nLang" onChange={setPages} />
+                </StyledPanel>
+            }
             <Checkbox
                 label='Una consultoria SEO (300€)'
                 name="budgetSeo"
                 value= '300'
-                onChange={onChange}
+                onChange={setBuget}
             />
             <Checkbox
                 label='Una campaña de Google ADS (200€)'
                 name="budgetAds"
                 value= '200'
-                onChange={onChange}
+                onChange={setBuget}
             />
             <div className="mt-2">
-                <p><b>Total: {total}</b></p>
+                <p><b>Total: {data.total}</b></p>
             </div>
         </div>
     )

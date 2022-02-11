@@ -148,12 +148,20 @@ React II (desarrollar un presupuesto)
 >**styled-components**:
 >npm i styled-components
 >
+>**react-router**:
+>npm install react-router-dom
+>
+>**react-bootstrap**:
+>npm install react-bootstrap bootstrap@5.1.3
+>
 
 >**Recursos**
 >
 >**React-Beta:** https://beta.reactjs.org/
 >
 >**Curso de react:** https://bluuweb.github.io/react-udemy/
+>
+>**react-bootstrap:** https://react-bootstrap.github.io/getting-started/introduction/
 
 
 <br/>
