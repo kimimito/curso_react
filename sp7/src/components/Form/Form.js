@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Checkbox } from '../Checkbox/Checkbox';
 import { Panel } from '../Panel/Panel';
-import { StyledPanel } from './style'
+import { Input } from '../Input/Input';
+import { Button } from 'react-bootstrap';
+import './form.css'
+
 
 const Form = () => {
 
-    const [total, setTotal] = useState(0)
+    const [total, setTotal] = useState(0);
+
+    const [budgetName, setBudgetName] = useState('');
+    const [clientName, setClientName] = useState('');
 
     const [data, setData] = useState({
         budgetWeb: 0,
@@ -35,7 +41,7 @@ const Form = () => {
 
         if (name === 'budgetWeb') {
             setShowComponent(!showComponent);
-        }
+        } 
 
     }
 
@@ -47,6 +53,14 @@ const Form = () => {
         })
     }
 
+    const setName = (name, value) => {
+        if (name === 'clientName') {
+            setClientName(value)
+        } else {
+            setBudgetName(value)
+        }
+    }
+
     useEffect(() => {
         const { budgetWeb, budgetSeo, budgetAds, nPag, nLang } = data;
         let totalBudgetWeb = budgetWeb;
@@ -55,12 +69,25 @@ const Form = () => {
             totalBudgetWeb = budgetWeb + nPag * nLang * 30;
         }
         const total = totalBudgetWeb + budgetSeo + budgetAds;
-
-        localStorage.setItem("data", JSON.stringify({ ...data, total }));
         setTotal(total)
+
     }, [data]);
 
-    console.log('localStorage', JSON.parse(localStorage.getItem("data")));
+    const saveBudget = () => {
+        const date = new Date().toLocaleString("en-US");
+        const budget = [{ ...data, total, budgetName, clientName, date }];
+        let budgets = JSON.parse(localStorage.getItem("budgets"));
+
+        if (!budgets) {
+            budgets = [];
+        }
+
+        budgets.push(...budget);
+        localStorage.setItem("budgets", JSON.stringify(budgets));
+
+        window.location.reload(true);
+
+    }
 
     return (
         <div>
@@ -71,10 +98,10 @@ const Form = () => {
                 onChange={setBuget}
             />
             {showComponent &&
-                <StyledPanel>
+                <div className="styledPanel">
                     <Panel label='Numero de paginas' value={data.nPag} name="nPag" onChange={setPages} className="mb-4" />
                     <Panel label='Numero de idiomas' value={data.nLang} name="nLang" onChange={setPages} />
-                </StyledPanel>
+                </div>
             }
             <Checkbox
                 label='Una consultoria SEO (300€)'
@@ -90,6 +117,19 @@ const Form = () => {
             />
             <div className="mt-2">
                 <p><b>Total: {total}</b></p>
+            </div>
+            <Input
+                label='Intruduce un nombre de presupueto'
+                name="budgetName"
+                onChange={setName}
+            />
+            <Input
+                label='Intruduce tu nombre'
+                name="clientName"
+                onChange={setName}
+            />
+            <div className="mb-4">
+                <Button variant="outline-info" onClick={saveBudget}><i>Guardar</i></Button>
             </div>
         </div>
     )
