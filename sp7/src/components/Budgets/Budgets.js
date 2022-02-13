@@ -4,19 +4,19 @@ import { Button } from 'react-bootstrap';
 
 const Budgets = () => {
 
-    let [budgets, setList] = useState(JSON.parse(localStorage.getItem("budgets")))
+    let [budgets, setBudgets] = useState(JSON.parse(localStorage.getItem("budgets")))
 
     const orderAlfa = () => {
-        let sortedList = [...budgets].sort((a, b) => (a.budgetName > b.budgetName ? 1 : a.budgetName < b.budgetName ? -1 : 0));
-        setList(sortedList)
+        let orderedList = [...budgets].sort((a, b) => (a.budgetName > b.budgetName ? 1 : a.budgetName < b.budgetName ? -1 : 0));
+        setBudgets(orderedList)
     }
     const orderDate = () => {
-        let sortedList = [...budgets].sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
-        setList(sortedList)
+        let orderedList = [...budgets].sort((a, b) => (a.date < b.date ? 1 : a.date > b.date ? -1 : 0));
+        setBudgets(orderedList)
     }
     const orderReset = () => {
-        let sortedList = JSON.parse(localStorage.getItem("budgets"));
-        setList(sortedList)
+        let orderedList = JSON.parse(localStorage.getItem("budgets"));
+        setBudgets(orderedList)
     }
     
 
@@ -29,7 +29,6 @@ const Budgets = () => {
         viewBudget = true;
     }
 
-    console.log('XX', budgets)
 
     budgets.forEach((item) => {
         if (item.budgetWeb === 0) {
