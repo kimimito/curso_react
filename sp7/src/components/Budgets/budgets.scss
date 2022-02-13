@@ -1,0 +1,23 @@
+.budgetContent{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+    .budgetCard{
+        border: 1px solid #666;
+        padding: 10px;
+        border-radius: 10px;
+        width: 100%;
+        max-width: 300px;
+        p{
+            margin-bottom: 0.5rem;
+        }
+    }
+    
+}
+.budgetButtons{
+    margin-bottom: 20px;
+    button{
+        margin-right: 20px;
+    }
+}

@@ -3,7 +3,7 @@ import { Checkbox } from '../Checkbox/Checkbox';
 import { Panel } from '../Panel/Panel';
 import { Input } from '../Input/Input';
 import { Button } from 'react-bootstrap';
-import './form.css'
+import './form.scss'
 
 
 const Form = () => {
@@ -76,15 +76,17 @@ const Form = () => {
     const saveBudget = () => {
         const date = new Date().toLocaleString("en-US");
         const budget = [{ ...data, total, budgetName, clientName, date }];
+        
         let budgets = JSON.parse(localStorage.getItem("budgets"));
 
         if (!budgets) {
             budgets = [];
         }
-
-        budgets.push(...budget);
-        localStorage.setItem("budgets", JSON.stringify(budgets));
-
+        if(total !== 0){
+            budgets.push(...budget);
+            localStorage.setItem("budgets", JSON.stringify(budgets));
+        }
+        
         window.location.reload(true);
 
     }

@@ -10,12 +10,12 @@ function Budget() {
           <Link to="/">Volver</Link>
           <div className="container mt-4">
           <div className="row">
-              <div className="col">
-                  <h3>¿Que quieres hacer?</h3>
+              <div className="col-md-12 col-lg-4">
+                  <h3 className="mb-4">¿Que quieres hacer?</h3>
                   <Form></Form>
               </div>
-              <div className="col">
-                  <h3>Tus presupuestos</h3>
+              <div className="col-md-12 col-lg-8">
+                  <h3 className="mb-4">Tus presupuestos</h3>
                   <Budgets></Budgets>
               </div>
             </div>

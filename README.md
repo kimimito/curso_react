@@ -145,8 +145,8 @@ React II (desarrollar un presupuesto)
 
 >**Dependencias**
 >
->**styled-components**:
->npm i styled-components
+>**sass**:
+>npm install sass
 >
 >**react-router**:
 >npm install react-router-dom

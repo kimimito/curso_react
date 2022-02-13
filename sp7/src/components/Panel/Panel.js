@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { Button } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
-import './panel.css';
+import './panel.scss';
 
 
 const Panel = ({ label, name, value, className, onChange }) => {
