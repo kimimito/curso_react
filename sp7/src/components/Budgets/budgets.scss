@@ -12,12 +12,33 @@
         p{
             margin-bottom: 0.5rem;
         }
-    }
-    
+    }   
 }
 .budgetButtons{
     margin-bottom: 20px;
     button{
         margin-right: 20px;
+    }
+}
+.input-group {
+    width: 370px!important;
+    float: right;
+    right: 240px;
+    @media only screen and (max-width: 1399px) {
+        right: 120px;
+    }
+    @media only screen and (max-width: 1200px) {
+        width: 300px !important;
+        right: 70px;
+    }
+    @media only screen and (max-width: 991px) {
+        right: 77px;
+        width: 54% !important;
+    }
+    @media only screen and (max-width: 767px) {
+        right: 0px;
+        width: 300px !important;
+        float: none;
+        margin-top: 15px;
     }
 }
