@@ -30,7 +30,7 @@ const Form = () => {
     const setBudget = (e) => {
         const { name, value } = e.target;
 
-        const setValue = data[name] ? false : parseInt(value);
+        const setValue = data[name] ? 0 : parseInt(value);
         setData({
             ...data,
             [name]: setValue,
