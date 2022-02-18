@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Input = ({ label, name, value, onChange, defaultValue }) => {
+const Input = ({ label, name, value, onChange }) => {
 
     const handleChange = (event) => {
         const value = event.target.value
@@ -15,7 +15,6 @@ const Input = ({ label, name, value, onChange, defaultValue }) => {
                 name={name}
                 value={value}
                 onChange={handleChange}
-                defaultValue={defaultValue}
             />
         </div>
     );
