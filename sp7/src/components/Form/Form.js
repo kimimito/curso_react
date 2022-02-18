@@ -112,7 +112,7 @@ const Form = () => {
                 ...dataParams,
             })
         }
-
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
     if (total !== 0 || !data) {
