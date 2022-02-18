@@ -138,6 +138,31 @@ Consulte la sección sobre [implementación](https://facebook.github.io/create-r
 <br/>
 
 ## Sp7
+React II (desarrollar un presupuesto)
+
+- Instalacion del sprint con el comando "**npm install**"
+- arrancar proyecto "**npm start**"
+
+>**Dependencias**
+>
+>**sass**:
+>npm install sass
+>
+>**react-router**:
+>npm install react-router-dom
+>
+>**react-bootstrap**:
+>npm install react-bootstrap bootstrap@5.1.3
+>
+
+>**Recursos**
+>
+>**React-Beta:** https://beta.reactjs.org/
+>
+>**Curso de react:** https://bluuweb.github.io/react-udemy/
+>
+>**react-bootstrap:** https://react-bootstrap.github.io/getting-started/introduction/
+
 
 <br/>
 
