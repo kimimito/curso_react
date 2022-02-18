@@ -115,8 +115,6 @@ const Form = () => {
 
     }, []);
 
-    console.log("data", data)
-
     if (total !== 0 || !data) {
         const paramsUrl = Object.entries({ ...data, total }).reduce((acum, actual, index) => (`${acum}${index === 0 ? '?' : '&'}${actual[0]}=${actual[1]}`), '');
         const newUrl = paramsUrl;

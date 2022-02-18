@@ -5,7 +5,6 @@ import { Button } from 'react-bootstrap';
 
 const Budgets = () => {
 
-    let GET_parameters = {};
     let [budgets, setBudgets] = useState(JSON.parse(localStorage.getItem("budgets")))
 
     const orderAlfa = () => {
