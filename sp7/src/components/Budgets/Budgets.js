@@ -5,7 +5,20 @@ import { Button } from 'react-bootstrap';
 
 const Budgets = () => {
 
+    let GET_parameters = {};
     let [budgets, setBudgets] = useState(JSON.parse(localStorage.getItem("budgets")))
+
+    if (window.location.search) {
+        var splitts = window.location.search.substring(1).split('&');
+        for (var i = 0; i < splitts.length; i++) {
+            var key_value_pair = splitts[i].split('=');
+            if (!key_value_pair[0]) continue;
+            GET_parameters[key_value_pair[0]] = key_value_pair[1] || true;
+        }
+        let urlParams = GET_parameters;
+        console.log('urlParams',urlParams)
+        //setBudgets(urlParams)
+    } 
 
     const orderAlfa = () => {
         let orderedList = [...budgets].sort((a, b) => (a.budgetName > b.budgetName ? 1 : a.budgetName < b.budgetName ? -1 : 0));

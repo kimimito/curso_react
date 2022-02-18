@@ -1,14 +1,20 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState } from 'react';
 
 
-const Checkbox = ({ label, name, value, onChange }) => {
+const Checkbox = ({ label, name, value, onChange, defaultChecked }) => {
 
-    
-    const [checked, setChecked] = useState(false);
+
+    const [checked, setChecked] = useState(defaultChecked);
+
+    useEffect(() => {
+        if (checked) {
+            onChange({ name, value, checked });
+        }
+    },[])
 
     const handleChange = () => {
         setChecked(!checked);
-        onChange({name, value, checked});
+        onChange({ name, value, checked });
     };
 
 
@@ -18,6 +24,6 @@ const Checkbox = ({ label, name, value, onChange }) => {
             <label htmlFor={name} className="ms-2">{label}</label>
         </div>
     );
-  };
+};
 
-export {Checkbox};
+export { Checkbox };
