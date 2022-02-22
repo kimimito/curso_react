@@ -1,0 +1,17 @@
+.wrapper{
+  background-image: url(../../images/star-wars-background.jpeg);
+  background-color: #000;
+  min-height: 100vh;
+  color: #FFF;
+  text-align: center;
+  padding-bottom: 30px;
+  .logo {
+    height: 15vmin;
+      pointer-events: none;
+      margin-top: 40px;
+  }
+}
+.link{
+  color: #FFF;
+  text-decoration: none;
+}
