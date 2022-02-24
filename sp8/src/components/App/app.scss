@@ -1,0 +1,58 @@
+.wrapper{
+  background-image: url(../../images/stars-bg.jpg);
+  background-color: #000;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  color: #FFF;
+  text-align: center;
+  padding-bottom: 30px;
+  .logo {
+    height: 15vmin;
+    pointer-events: none;
+    margin-top: 40px;
+    z-index: 100;
+    position: relative;
+  }
+}
+.link{
+  color: #FFF;
+  text-decoration: none;
+}
+
+.header-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 1vmin);
+  flex-wrap: nowrap;
+  margin: 40px auto;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #666;
+  background-color: #151515;
+  z-index: 100;
+  position: relative;
+  a{
+      color: #6C6C6C;
+      text-decoration: none;
+      padding: 15px 20px;
+      border-left: 1px solid transparent;
+      border-right: 1px solid transparent;
+      border-bottom: 3px solid transparent;
+      text-transform: uppercase;
+      &:hover{
+          color: #FFF;
+          border-left: 1px solid #666;
+          border-right: 1px solid #666;
+          border-bottom: 3px solid #FFF;
+      }
+      &.active{
+          color: #e7b339;
+          border-left: 1px solid #666;
+          border-right: 1px solid #666;
+          border-bottom: 3px solid #e7b339;  
+      }
+  }
+}

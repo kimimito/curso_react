@@ -9,7 +9,17 @@
     align-content: flex-start;
     max-width: 650px;
     padding: 20px 40px;
+    color: #FFF;
+    text-decoration: none;
+    &:hover{
+        border-color: #e7b339;
+        color: #e7b339;
+    }
     h3, h5{
         margin: 2px;
+    }
+    @media screen and (max-width: 768px) {
+        margin-left:10px;
+        margin-right: 10px;
     }
 }

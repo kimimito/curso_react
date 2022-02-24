@@ -1,32 +1,27 @@
 import React from 'react';
-import './App.scss';
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, NavLink } from "react-router-dom";
+import './app.scss';
 import Home from '../../pages/Home';
 import StarShips from '../../pages/StarShips';
-import HeaderNav from '../HeaderNav/HeaderNav';
+import StarShipsDetail from '../../pages/StarShipsDetail';
+import NotFound from '../../pages/NotFound';
 import logo from '../../images/logo.png';
 
 function App() {
-  return (
-    <div className="wrapper">
-      <img src={logo} className="logo" alt="logo" />
-      <HeaderNav className="header-nav" />
-      <Routes>
-        <Route exact path="/" element={<Home />} />
-        <Route exact path="/StarShips" element={<StarShips />} />
-        <Route path="*" element={<NoMatch />} />
-      </Routes>
-    </div>
-  );
-}
 
-function NoMatch() {
   return (
-    <div>
-      <h1>Nothing to see here!</h1>
-      <p>
-        <Link className="link" to="/">Go to the home page</Link>
-      </p>
+    <div className='wrapper'>
+      <img src={logo} className='logo' alt='logo' />
+      <div className='header-nav'>
+        <NavLink to='/' label='Home'>Home</NavLink>
+        <NavLink to='/StarShips' label='StarShips'>StarShips</NavLink>
+      </div>
+      <Routes>
+        <Route exact path='/' element={<Home />} />
+        <Route exact path='/StarShips' element={<StarShips />} />
+        <Route exact path='/StarShips/Detail' element={<StarShipsDetail />} />
+        <Route path='*' element={<NotFound />} />
+      </Routes>
     </div>
   );
 }

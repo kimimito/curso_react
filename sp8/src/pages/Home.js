@@ -1,11 +1,11 @@
-import React from 'react'
+import React from 'react';
+import ScrollText from '../components/ScrollText/ScrollText';
 
 function Home() {
+
   return (
     <main>
-      <h1>Welcome to the Star Wars Universe</h1>
-      <h2>Login or register to join</h2>
-      <h2>may the force be with you!...</h2>
+      <ScrollText></ScrollText>
     </main>
   );
 }
