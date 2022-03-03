@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './scrollText.scss';
+import {Login} from '../Login/Login';
 
 
 function ScrollText() {
@@ -14,10 +14,11 @@ function ScrollText() {
             The Star Wars API, or 'swapi' (Swah-pee) is the world's first quantified and programmatically-accessible data source for all the data from the Star Wars canon universe!
             We've taken all the rich contextual stuff from the universe and formatted into something easier to consume with software. Then we went and stuck an API on the front so you can access it all! Login or register to join.
             </p>
-            <p>may the force be with you!...</p>
-            <Link to='/' className='space-button'>LOGIN</Link>
+            <p>May the force be with you!...</p>
             <br/>
-            <Link to='/' className='space-button'>REGISTER</Link>
+            <div className='space-button'>
+              <Login/>
+            </div>
         </div>
     </div>
   );

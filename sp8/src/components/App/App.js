@@ -6,12 +6,16 @@ import StarShips from '../../pages/StarShips';
 import StarShipsDetail from '../../pages/StarShipsDetail';
 import NotFound from '../../pages/NotFound';
 import logo from '../../images/logo.png';
+import {Login} from '../Login/Login';
 
 function App() {
 
   return (
     <div className='wrapper'>
-      <img src={logo} className='logo' alt='logo' />
+      <div className='header'>
+        <img src={logo} className='logo' alt='logo' />
+        <Login />
+      </div>
       <div className='header-nav'>
         <NavLink to='/' label='Home'>Home</NavLink>
         <NavLink to='/StarShips' label='StarShips'>StarShips</NavLink>

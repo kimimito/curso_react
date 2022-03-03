@@ -8,12 +8,35 @@
   color: #FFF;
   text-align: center;
   padding-bottom: 30px;
-  .logo {
-    height: 15vmin;
-    pointer-events: none;
-    margin-top: 40px;
-    z-index: 100;
-    position: relative;
+  .header{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    max-width: 1000px;
+    margin: 0 auto;
+    .logo {
+      max-width: 300px;
+      width: 100%;
+      pointer-events: none;
+      margin: 40px auto 0px;
+      z-index: 100;
+      position: relative;
+      margin-right: 19%;
+      @media screen and (max-width: 720px) {
+        max-width: 130px;
+      }
+    }
+    button{
+      background-color: transparent;
+      color: #fff;
+      border: 0px;
+      margin-right: 10px;
+      border-bottom: 2px solid transparent;
+      &:hover{
+        color: #e7b339;
+        border-bottom: 2px solid #e7b339;  
+      }
+    }
   }
 }
 .link{

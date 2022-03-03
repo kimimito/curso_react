@@ -1,0 +1,13 @@
+.pilot-detail{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 50px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid gray;
+    img{
+        max-width: 130px;
+    }
+}

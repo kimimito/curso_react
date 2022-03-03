@@ -21,7 +21,7 @@
   }
 }
   
-.space-button {
+.space-button button {
   color: #e7b339;
   border: 12px solid #e7b339;
   padding: 20px;
@@ -30,18 +30,20 @@
   margin: 0 auto;
   display: block;
   text-align: center;
+  width: 100%;
+  margin-bottom: 60px;
 }
 
-.space-button:hover {
+.space-button button:hover {
   background-color: #e7b339;
   border-color: #e7b339;
   color: black;
 }
 
-.space-button:active,
-.space-button:focus {
-  background-color: #B8A40A;
-  border-color: #B8A40A;
+.space-button button:active,
+.space-button button:focus {
+  background-color: #e7b339;
+  border-color: #e7b339;
   color: black;
 }
 
