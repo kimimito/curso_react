@@ -109,7 +109,7 @@ function Login({ onChange }) {
 
                 <Modal.Footer>
                     {showError && <p className='error'>Connection Error!</p>}
-                    <p>You don't have an account? <a name='login' onClick={handleRegister}>Create</a></p>
+                    <p>You don't have an account? <span name='login' onClick={handleRegister}>Create</span></p>
                 </Modal.Footer>
 
             </Modal>
@@ -185,7 +185,7 @@ function Login({ onChange }) {
                 </Modal.Body>
 
                 <Modal.Footer>
-                    <p>Already have an account? <a name='login' onClick={handleLogin}>Sign In</a></p>
+                    <p>Already have an account? <span name='login' onClick={handleLogin}>Sign In</span></p>
                 </Modal.Footer>
 
             </Modal>
