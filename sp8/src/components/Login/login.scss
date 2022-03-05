@@ -1,0 +1,66 @@
+.modal-content{
+    background-color: #151515 !important;
+    .modal-header{
+        text-align: center;
+        align-items: flex-start;
+        justify-content: flex-end;
+        border-bottom: 0px;
+        .btn-close{
+            background: transparent url("../../images/close.png") center/2em auto no-repeat;
+            margin: 0;
+            position: absolute;
+        }
+        img{
+            margin: 0 auto;
+            max-width: 150px;
+        }
+    }
+    .modal-body{
+        color: #FFF;
+        h2{
+            color: #e7b339;
+            text-align: center;
+        }
+        .submit-btn{
+            color: #e7b339;
+            border: 2px solid #e7b339;
+            padding: 10px;
+            background: transparent;
+            text-decoration: none;
+            margin: 0 auto;
+            display: block;
+            text-align: center;
+            width: 100%;
+            &:hover {
+                color: #000;
+                border-color: #e7b339;
+                background: #e7b339;
+            }
+        }
+        .form-check-input:checked {
+            background-color: #e7b339;
+            border-color: #e7b339;
+        }
+        .form-check-input:focus {
+            box-shadow: 0 0 0 .25rem rgba(231,179,57,.25);
+            border-color: #e7b339;
+        }
+    }
+    .modal-footer{
+        color: #fff;
+        border-top: 0px;
+        justify-content: space-between;
+        .error{
+            color:red;
+            position: relative;
+            left: 0px;
+        }
+        a{
+            cursor: pointer;
+            color: #e7b339 !important;
+            &:hover{
+                color: #fff !important;
+            }
+        }
+    }
+}

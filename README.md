@@ -167,6 +167,28 @@ React II (desarrollar un presupuesto)
 <br/>
 
 ## Sp8
+React III (api starwars)
+
+- Instalacion del sprint con el comando "**npm install**"
+- arrancar proyecto "**npm start**"
+
+>**Dependencias**
+>
+>**sass**:
+>npm install sass
+>
+>**react-router**:
+>npm install react-router-dom
+>
+>**react-bootstrap**:
+>npm install react-bootstrap bootstrap@5.1.3
+>
+
+
+>**Recursos**
+>
+>**React-Beta:** https://beta.reactjs.org/
+
 
 <br/>
 
