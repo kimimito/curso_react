@@ -75,7 +75,7 @@ function StarShipsList() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isFetching]);
 
-  function handleScroll() {
+  const handleScroll = () => {
     if (window.innerHeight + document.documentElement.scrollTop !== document.documentElement.offsetHeight || isFetching || endScroll) return;
     setIsFetching(true);
   }

@@ -180,6 +180,9 @@ React III (api starwars)
 >**react-router**:
 >npm install react-router-dom
 >
+>**react-bootstrap**:
+>npm install react-bootstrap bootstrap@5.1.3
+>
 
 
 >**Recursos**

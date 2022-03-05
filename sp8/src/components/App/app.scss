@@ -42,6 +42,9 @@
 .link{
   color: #FFF;
   text-decoration: none;
+  &:hover{
+    color: #e7b339;
+  }
 }
 
 .header-nav {
